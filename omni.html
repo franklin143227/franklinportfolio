@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Omni</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="site.css">
+<style>:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="index.html">Frank Lin <small>3D generalist and content creator</small></a>
+    <nav aria-label="Main">
+      <a href="3d.html" aria-current="page">3D &amp; Animation</a>
+      <a href="film.html">Film &amp; Content</a>
+      <a href="index.html#about">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="wrap page-head">
+    <span class="label">Unreal animated short · team project</span>
+    <h1>Omni</h1>
+    <p class="lede">A 6-minute animated short made in Unreal Engine with MetaHuman characters and motion capture.</p>
+  </section>
+  <section class="wrap area" style="padding-top:44px">
+    <div class="media" style="aspect-ratio:16/9;max-width:980px"><img src="img/omni.jpg" width="1200" height="675" alt="Close-up of a realistic MetaHuman face with wide eyes under purple light"></div>
+    <p style="margin-top:22px" class="watch"><a href="https://youtu.be/J4o5Ikf_lOY">Watch the full film ↗</a></p>
+
+    <div class="proj-cols">
+      <div class="proj-text">
+        <h2>The film</h2>
+        <p>Omni is a 6-minute 3D animated short made in Unreal Engine, with realistic MetaHuman characters and motion capture.</p>
+        <h2>My role</h2>
+        <p>I was a 3D artist and animator on a 7-person team.</p>
+        <ul class="role-list">
+          <li>Designed characters with MetaHuman</li>
+          <li>Used motion capture to bring the characters' movement to life</li>
+          <li>Animated and designed scenes in Unreal Engine</li>
+        </ul>
+      </div>
+      <dl class="spec-list">
+        <dt>Project</dt><dd>University of Utah, Spring 2024</dd>
+        <dt>Length</dt><dd>About 6 minutes</dd>
+        <dt>Engine</dt><dd>Unreal Engine, MetaHuman, motion capture</dd>
+        <dt>My role</dt><dd>3D artist, animator</dd>
+      </dl>
+    </div>
+
+    <h2 style="margin-top:72px;margin-bottom:22px">Animation</h2>
+    <div class="two-up">
+      <figure><div class="media" style="aspect-ratio:1140/784"><video data-src="vid/omni_face.mp4" poster="vid/omni_face.jpg" autoplay muted loop playsinline preload="metadata" aria-label="A MetaHuman character talking under purple light"></video></div><figcaption><h3>Facial animation</h3><p class="meta">A MetaHuman character speaking</p></figcaption></figure>
+      <figure><div class="media" style="aspect-ratio:1280/888"><video data-src="vid/omni_mocap.mp4" poster="vid/omni_mocap.jpg" autoplay muted loop playsinline preload="metadata" aria-label="A motion capture shot where a character falls and another steps over"></video></div><figcaption><h3>Motion capture</h3><p class="meta">Body animation from motion capture</p></figcaption></figure>
+    </div>
+  </section>
+  <section class="wrap area">
+    <p class="next">More work: <a href="3d.html">3D &amp; Animation</a>, <a href="film.html">Film &amp; Content</a></p>
+  </section>
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div><strong>Frank Lin</strong>3D generalist and content creator<br>Entertainment Technology Center, Carnegie Mellon University</div>
+    <div>chuhsial@andrew.cmu.edu<br><a href="https://www.artstation.com/linfrank3">ArtStation</a> · <a href="https://www.linkedin.com/in/chuhsianglin">LinkedIn</a></div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function start(v) {
+    if (v.dataset.loaded) return; v.dataset.loaded = '1';
+    var url = v.getAttribute('data-src');
+    function direct() { v.src = url; if (!reduce) { var p = v.play(); if (p && p.catch) p.catch(function () { v.controls = true; }); } }
+    if (!window.fetch || location.protocol === 'file:') { direct(); return; }
+    fetch(url).then(function (r) { if (!r.ok) throw 0; return r.blob(); }).then(function (b) {
+      v.src = URL.createObjectURL(b.type ? b : new Blob([b], { type: 'video/mp4' }));
+      if (reduce) { v.controls = true; return; }
+      var p = v.play(); if (p && p.catch) p.catch(function () { v.controls = true; });
+    }).catch(direct);
+  }
+  var vids = document.querySelectorAll('video[data-src]');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { start(e.target); io.unobserve(e.target); } }); }, { rootMargin: '300px' });
+    vids.forEach(function (v) { io.observe(v); });
+  } else { vids.forEach(start); }
+})();
+</script>
+</body>
+</html>

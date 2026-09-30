@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TorchBearer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="site.css">
+<style>:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="index.html">Frank Lin <small>3D generalist and content creator</small></a>
+    <nav aria-label="Main">
+      <a href="3d.html" aria-current="page">3D &amp; Animation</a>
+      <a href="film.html">Film &amp; Content</a>
+      <a href="index.html#about">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="wrap page-head">
+    <span class="label">Multiplayer VR game for the CAVERN · team project</span>
+    <h1>TorchBearer: Mérida</h1>
+    <p class="lede">A multiplayer game for CMU's 270° CAVERN, where every player sees the world from their own view.</p>
+  </section>
+  <section class="wrap area" style="padding-top:44px">
+    <div class="media r-pano"><img src="img/tb_pano.jpg" width="1544" height="432" alt="Panorama of the Mérida plaza: colorful market stalls, papel picado banners, palm trees and a tiled square"></div>
+    <p class="caption" style="margin-top:10px">The Mérida plaza, stretched across the CAVERN's 270° screen.</p>
+    <p style="margin-top:22px" class="watch"><a href="https://youtu.be/xv3z6NVVTjM">Watch the full playthrough ↗</a> <a href="https://youtu.be/cQx8iRMS7PI">Watch the video ↗</a> <a href="https://projects.etc.cmu.edu/torchbearer">Project website ↗</a></p>
+
+    <div class="proj-cols">
+      <div class="proj-text">
+        <h2>The project</h2>
+        <p>The CAVERN at CMU's ETC is a VR room with a 270° curved stereo screen. It could track one player and draw the world from that player's view. Anyone else had to stand close to them to see things right.</p>
+        <p>Team TorchBearer built a multi-perspective rendering technique that tracks several players at once. Each player sees objects from their own point of view, so people can move freely, hand objects to each other and look at the same thing from different sides. We made a game called Mérida to show it off.</p>
+        <h2>My role</h2>
+        <p>I was a 3D generalist on the team, working in Unity.</p>
+        <ul class="role-list">
+          <li>Modeled, rigged and animated the pigeon</li>
+          <li>Built the procedural ground texture and other shaders in Shader Graph</li>
+          <li>Made the particle effects</li>
+          <li>Modeled and animated the blooming flower</li>
+          <li>Modeled the Sillas Confidentes, the classic Mérida love-seat chairs</li>
+          <li>Modeled props like the ice cream, frisbee and flower cards</li>
+        </ul>
+      </div>
+      <dl class="spec-list">
+        <dt>Project</dt><dd>ETC semester project, Spring 2026</dd>
+        <dt>Platform</dt><dd>CAVERN, 270° curved stereo 3D screen with head tracking for several players</dd>
+        <dt>Engine</dt><dd>Unity, Shader Graph</dd>
+        <dt>My role</dt><dd>3D generalist</dd>
+      </dl>
+    </div>
+
+    <h2 style="margin-top:72px;margin-bottom:22px">The pigeon</h2>
+    <div class="trio">
+      <div class="media r-sq"><video data-src="vid/tb_pigeon_stand.mp4" poster="vid/tb_pigeon_stand.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Pigeon standing and stretching its wings"></video></div>
+      <div class="media r-sq"><video data-src="vid/tb_pigeon_fly.mp4" poster="vid/tb_pigeon_fly.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Pigeon flapping its wings in flight"></video></div>
+      <div class="media r-sq"><video data-src="vid/tb_pigeon_glide.mp4" poster="vid/tb_pigeon_glide.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Pigeon gliding with open wings"></video></div>
+    </div>
+    <p class="caption" style="margin-top:10px">Modeled, rigged and animated by me.</p>
+
+    <div class="two-up">
+      <figure><div class="media"><img src="img/tb_chair.jpg" width="1317" height="444" alt="A photo of real Sillas Confidentes in Mérida next to my 3D model of the chair in the game" loading="lazy"></div><figcaption><h3>Sillas Confidentes</h3><p class="meta">Reference photo, left, and my model in the game, right</p></figcaption></figure>
+      <figure><div class="media" style="aspect-ratio:884/656"><video data-src="vid/tb_flower.mp4" poster="vid/tb_flower.jpg" autoplay muted loop playsinline preload="metadata" aria-label="A rose opening and closing its petals"></video></div><figcaption><h3>Blooming flower</h3><p class="meta">Modeled and animated for the game</p></figcaption></figure>
+    </div>
+
+    <h2 style="margin-top:72px;margin-bottom:10px">In the CAVERN</h2>
+    <p class="lede" style="margin-bottom:22px">Two players hold the flower together and it bursts into bloom. Each one sees it from their own position, which is what multi-perspective rendering makes possible.</p>
+    <div class="media" style="aspect-ratio:16/9;max-width:980px"><video data-src="vid/tb_handoff.mp4" poster="vid/tb_handoff.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Two players with 3D glasses in the CAVERN passing a large rose between them"></video></div>
+    <div class="two-up" style="margin-top:32px">
+      <figure><div class="media"><img src="img/tb_stereo.jpg" width="1600" height="781" alt="A top and bottom stereo render of the plaza with stalls, umbrellas and pennant banners" loading="lazy"></div><figcaption><h3>Stereo render</h3><p class="meta">The plaza rendered in top and bottom stereo for the CAVERN's 3D glasses</p></figcaption></figure>
+      <figure><div class="media" style="aspect-ratio:600/368"><video data-src="vid/tb_cavern.mp4" poster="vid/tb_cavern.jpg" autoplay muted loop playsinline preload="metadata" aria-label="A player wearing 3D glasses inside the CAVERN with the plaza projected around them"></video></div><figcaption><h3>Playtest</h3><p class="meta">Playing Mérida in the CAVERN</p></figcaption></figure>
+    </div>
+  </section>
+  <section class="wrap area">
+    <p class="next">More work: <a href="3d.html">3D &amp; Animation</a>, <a href="film.html">Film &amp; Content</a></p>
+  </section>
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div><strong>Frank Lin</strong>3D generalist and content creator<br>Entertainment Technology Center, Carnegie Mellon University</div>
+    <div>chuhsial@andrew.cmu.edu<br><a href="https://www.artstation.com/linfrank3">ArtStation</a> · <a href="https://www.linkedin.com/in/chuhsianglin">LinkedIn</a></div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function start(v) {
+    if (v.dataset.loaded) return; v.dataset.loaded = '1';
+    var url = v.getAttribute('data-src');
+    function direct() { v.src = url; if (!reduce) { var p = v.play(); if (p && p.catch) p.catch(function () { v.controls = true; }); } }
+    if (!window.fetch || location.protocol === 'file:') { direct(); return; }
+    fetch(url).then(function (r) { if (!r.ok) throw 0; return r.blob(); }).then(function (b) {
+      v.src = URL.createObjectURL(b.type ? b : new Blob([b], { type: 'video/mp4' }));
+      if (reduce) { v.controls = true; return; }
+      var p = v.play(); if (p && p.catch) p.catch(function () { v.controls = true; });
+    }).catch(direct);
+  }
+  var vids = document.querySelectorAll('video[data-src]');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { start(e.target); io.unobserve(e.target); } }); }, { rootMargin: '300px' });
+    vids.forEach(function (v) { io.observe(v); });
+  } else { vids.forEach(start); }
+})();
+</script>
+</body>
+</html>
