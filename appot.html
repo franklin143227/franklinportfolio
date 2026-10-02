@@ -16,7 +16,7 @@
   .pano img, .pano video { width: 100%; max-width: none; }
   .pano-hint { display: none; }
   @media (max-width: 720px) {
-    .pano img, .pano video { width: 240%; }
+    .pano img, .pano video { width: auto; height: 220px; }
     .pano-hint { display: block; margin-top: 8px; }
   }
 
@@ -199,11 +199,11 @@
     <div class="stack" style="margin-top:32px">
       <span class="label">My wide storyboards</span>
       <figure>
-        <div class="pano rounded"><img src="img/04_storyboard_plant_growth.jpg" width="2000" height="375" alt="Wide hand-drawn storyboard of the plant growing over time: first day, 41 days, 61 days, 21 days and 1 year, ending with an orange fruit"></div>
+        <div class="rounded wide-strip"><img src="img/04_storyboard_plant_growth.jpg" width="2000" height="375" alt="Wide hand-drawn storyboard of the plant growing over time: first day, 41 days, 61 days, 21 days and 1 year, ending with an orange fruit"></div><p class="swipe-hint">Swipe to see more · tap to enlarge</p>
         <figcaption class="caption">Plant growth, planned across the whole wall.</figcaption>
       </figure>
       <figure>
-        <div class="pano rounded"><img src="img/05_storyboard_road.jpg" width="2000" height="375" alt="Wide storyboard sketch of a road running to the center, with houses on the left, Gilbert running, and trees on the right"></div>
+        <div class="rounded wide-strip"><img src="img/05_storyboard_road.jpg" width="2000" height="375" alt="Wide storyboard sketch of a road running to the center, with houses on the left, Gilbert running, and trees on the right"></div><p class="swipe-hint">Swipe to see more · tap to enlarge</p>
         <figcaption class="caption">The road scene: one vanishing point in the center, the world on both sides.</figcaption>
       </figure>
     </div>
@@ -316,12 +316,12 @@
       <p>Each new scene starts where the eye already is. The forest scene ends with Gilbert on the left, and the backyard scene starts with him in the same spot. I did this with the picture only.</p>
       <div class="eyeflow">
         <figure>
-          <div class="rounded"><img src="img/13_eyeflow_forest_end.jpg" width="2000" height="390" alt="Last frame of the forest scene with Gilbert on the left side"></div>
+          <div class="rounded wide-strip"><img src="img/13_eyeflow_forest_end.jpg" width="2000" height="390" alt="Last frame of the forest scene with Gilbert on the left side"></div><p class="swipe-hint">Swipe to see more · tap to enlarge</p>
           <figcaption class="caption">End of the forest</figcaption>
         </figure>
         <span class="arrow" aria-hidden="true">↓ cut</span>
         <figure>
-          <div class="rounded"><img src="img/14_eyeflow_backyard_start.jpg" width="2000" height="404" alt="First frame of the backyard scene with Gilbert in the same left position"></div>
+          <div class="rounded wide-strip"><img src="img/14_eyeflow_backyard_start.jpg" width="2000" height="404" alt="First frame of the backyard scene with Gilbert in the same left position"></div><p class="swipe-hint">Swipe to see more · tap to enlarge</p>
           <figcaption class="caption">Start of the backyard</figcaption>
         </figure>
       </div>
@@ -416,6 +416,28 @@
     var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { start(e.target); io.unobserve(e.target); } }); }, { rootMargin: '300px' });
     vids.forEach(function (v) { io.observe(v); });
   } else { vids.forEach(start); }
+})();
+</script>
+<script id="lb-js">
+(function () {
+  var box = document.createElement('div');
+  box.className = 'lb'; box.hidden = true;
+  box.innerHTML = '<button class="lb-x" type="button" aria-label="Close">×</button><div class="lb-scroll"><img alt=""></div><p class="lb-tip">Swipe to see more · tap outside to close</p>';
+  document.body.appendChild(box);
+  var big = box.querySelector('img'), scroll = box.querySelector('.lb-scroll'), tip = box.querySelector('.lb-tip');
+  function close() { box.hidden = true; document.documentElement.style.overflow = ''; }
+  box.addEventListener('click', function (e) { if (e.target === box || e.target === scroll || e.target.classList.contains('lb-x')) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  document.querySelectorAll('main img').forEach(function (im) {
+    if (im.closest('a') || im.closest('.compare-frame')) return;
+    im.classList.add('zoomable');
+    im.addEventListener('click', function () {
+      big.src = im.currentSrc || im.src; big.alt = im.alt;
+      var wide = im.naturalWidth / Math.max(1, im.naturalHeight) > 1.7 && window.innerWidth < 760;
+      box.classList.toggle('wide', wide); tip.hidden = !wide;
+      box.hidden = false; document.documentElement.style.overflow = 'hidden'; scroll.scrollLeft = 0;
+    });
+  });
 })();
 </script>
 </body>

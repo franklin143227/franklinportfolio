@@ -28,7 +28,7 @@
     <p class="lede">A multiplayer game for CMU's 270° CAVERN, where every player sees the world from their own view.</p>
   </section>
   <section class="wrap area" style="padding-top:44px">
-    <div class="media r-pano"><img src="img/tb_pano.jpg" width="1544" height="432" alt="Panorama of the Mérida plaza: colorful market stalls, papel picado banners, palm trees and a tiled square"></div>
+    <div class="media r-pano wide-strip"><img src="img/tb_pano.jpg" width="1544" height="432" alt="Panorama of the Mérida plaza: colorful market stalls, papel picado banners, palm trees and a tiled square"></div><p class="swipe-hint">Swipe to see more · tap to enlarge</p>
     <p class="caption" style="margin-top:10px">The Mérida plaza, stretched across the CAVERN's 270° screen.</p>
     <p style="margin-top:22px" class="watch"><a href="https://youtu.be/xv3z6NVVTjM">Watch the full playthrough ↗</a> <a href="https://youtu.be/cQx8iRMS7PI">Watch the video ↗</a> <a href="https://projects.etc.cmu.edu/torchbearer">Project website ↗</a></p>
 
@@ -65,7 +65,7 @@
     <p class="caption" style="margin-top:10px">Modeled, rigged and animated by me.</p>
 
     <div class="two-up">
-      <figure><div class="media"><img src="img/tb_chair.jpg" width="1317" height="444" alt="A photo of real Sillas Confidentes in Mérida next to my 3D model of the chair in the game" loading="lazy"></div><figcaption><h3>Sillas Confidentes</h3><p class="meta">Reference photo, left, and my model in the game, right</p></figcaption></figure>
+      <figure><div class="media wide-strip"><img src="img/tb_chair.jpg" width="1317" height="444" alt="A photo of real Sillas Confidentes in Mérida next to my 3D model of the chair in the game" loading="lazy"></div><figcaption><h3>Sillas Confidentes</h3><p class="meta">Reference photo, left, and my model in the game, right</p></figcaption></figure>
       <figure><div class="media" style="aspect-ratio:884/656"><video data-src="vid/tb_flower.mp4" poster="vid/tb_flower.jpg" autoplay muted loop playsinline preload="metadata" aria-label="A rose opening and closing its petals"></video></div><figcaption><h3>Blooming flower</h3><p class="meta">Modeled and animated for the game</p></figcaption></figure>
     </div>
 
@@ -107,6 +107,28 @@
     var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { start(e.target); io.unobserve(e.target); } }); }, { rootMargin: '300px' });
     vids.forEach(function (v) { io.observe(v); });
   } else { vids.forEach(start); }
+})();
+</script>
+<script id="lb-js">
+(function () {
+  var box = document.createElement('div');
+  box.className = 'lb'; box.hidden = true;
+  box.innerHTML = '<button class="lb-x" type="button" aria-label="Close">×</button><div class="lb-scroll"><img alt=""></div><p class="lb-tip">Swipe to see more · tap outside to close</p>';
+  document.body.appendChild(box);
+  var big = box.querySelector('img'), scroll = box.querySelector('.lb-scroll'), tip = box.querySelector('.lb-tip');
+  function close() { box.hidden = true; document.documentElement.style.overflow = ''; }
+  box.addEventListener('click', function (e) { if (e.target === box || e.target === scroll || e.target.classList.contains('lb-x')) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  document.querySelectorAll('main img').forEach(function (im) {
+    if (im.closest('a') || im.closest('.compare-frame')) return;
+    im.classList.add('zoomable');
+    im.addEventListener('click', function () {
+      big.src = im.currentSrc || im.src; big.alt = im.alt;
+      var wide = im.naturalWidth / Math.max(1, im.naturalHeight) > 1.7 && window.innerWidth < 760;
+      box.classList.toggle('wide', wide); tip.hidden = !wide;
+      box.hidden = false; document.documentElement.style.overflow = 'hidden'; scroll.scrollLeft = 0;
+    });
+  });
 })();
 </script>
 </body>
