@@ -333,3 +333,26 @@ img.zoomable { cursor: zoom-in; }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
 }
+
+/* VFX page */
+.fx-sec { margin-top: 84px; }
+.fx-sec.first { margin-top: 0; }
+.fx-head { display: flex; align-items: baseline; gap: 6px 18px; flex-wrap: wrap; padding-bottom: 14px; margin-bottom: 24px; border-bottom: 1px solid var(--line, rgba(255,255,255,.12)); }
+.fx-head h2 { margin: 0; }
+.fx-head .meta { margin: 0; }
+.fx-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 36px 24px; align-items: start; }
+.fx-grid .fx { margin: 0; display: grid; gap: 12px; min-width: 0; }
+.fx-grid .fx.wide { grid-column: 1 / -1; }
+.fx-grid .fx.wide .media { max-height: 72vh; }
+.fx-grid .fx video, .fx-grid .fx img { width: 100%; height: 100%; object-fit: cover; }
+.fx figcaption h3 { margin: 0 0 4px; }
+.fx figcaption .meta { margin: 0 0 6px; }
+.fx figcaption p:last-child { margin: 0; color: var(--muted); max-width: 62ch; }
+.fx-link { color: var(--accent); text-decoration: none; white-space: nowrap; }
+.fx-link:hover { color: var(--accent-hi); }
+@media (max-width: 720px) {
+  .fx-grid { grid-template-columns: 1fr; gap: 32px; }
+  .fx-sec { margin-top: 64px; }
+}
+.fx-grid .fx.tall .media { max-width: 400px; }
+@media (max-width: 720px) { .fx-grid .fx.tall .media { max-width: 320px; } }

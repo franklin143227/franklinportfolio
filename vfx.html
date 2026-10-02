@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Frank Lin, VFX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="site.css">
+<style>:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="index.html">Frank Lin <small>3D generalist and content creator</small></a>
+    <nav aria-label="Main">
+      <a href="3d.html">3D &amp; Animation</a>
+      <a href="vfx.html" aria-current="page">VFX</a>
+      <a href="film.html">Film &amp; Content</a>
+      <a href="index.html#about">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="wrap page-head">
+    <span class="label">Visual effects</span>
+    <h1>Real-time and stylized VFX</h1>
+    <p class="lede">Effects I built with node-based tools: Niagara in Unreal, Shader Graph and particles in Unity, and stylized effects, modifiers and volumetrics in Blender.</p>
+  </section>
+  <section class="wrap area" style="padding-top:44px">
+    <div class="fx-sec first">
+      <div class="fx-head"><h2>Unreal Engine</h2><p class="meta">Niagara particle systems</p></div>
+      <div class="fx-grid">
+      <figure class="fx wide"><div class="media" style="aspect-ratio:960/670"><video data-src="vid/fx_spell.mp4" poster="vid/fx_spell.jpg" autoplay muted loop playsinline preload="metadata" aria-label="A fire spell: flames and embers swirl up from a glowing magic circle and burst"></video></div><figcaption><h3>Fire Magic</h3><p class="meta">Unreal Engine, Niagara · solo project</p><p>A fire spell cast from a magic circle. Flames and embers swirl up, gather into a fireball, then burst and fade. <a class="fx-link" href="fire-magic.html">See project →</a></p></figcaption></figure>
+      <figure class="fx "><div class="media" style="aspect-ratio:1280/750"><video data-src="vid/fx_editor.mp4" poster="vid/fx_editor.jpg" autoplay muted loop playsinline preload="metadata" aria-label="The fire effect playing inside the Niagara editor"></video></div><figcaption><h3>Fire Magic in Niagara</h3><p class="meta">Emitters and timeline</p><p>One Niagara system built from several emitters: fire, embers and sparks, each timed so the spell builds up and then bursts.</p></figcaption></figure>
+      <figure class="fx "><div class="media" style="aspect-ratio:1400/898"><img src="img/fx_niagara.jpg" width="1400" height="898" alt="Unreal Niagara editor showing the fire effect and its emitters" loading="lazy"></div><figcaption><h3>The Niagara system</h3><p class="meta">Emitter stack</p><p>The emitters that make up the spell, and how they are layered.</p></figcaption></figure>
+      </div>
+    </div>
+    <div class="fx-sec">
+      <div class="fx-head"><h2>Unity</h2><p class="meta">Shader Graph, particles and trails</p></div>
+      <div class="fx-grid">
+      <figure class="fx "><div class="media" style="aspect-ratio:1006/604"><video data-src="vid/kp_trail.mp4" poster="vid/kp_trail.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Rainbow running trail effect in the Unity editor"></video></div><figcaption><h3>Rainbow running trail</h3><p class="meta">Kungfu Penguin · Unity, Shader Graph</p><p>The trail a penguin leaves when it runs. Scrolling noise and a rainbow gradient that fades out. <a class="fx-link" href="kungfu-penguin.html">See project →</a></p></figcaption></figure>
+      <figure class="fx "><div class="media" style="aspect-ratio:1400/675"><img src="img/kp_shader_rainbow.jpg" width="1400" height="675" alt="Unity Shader Graph for the rainbow trail with noise, gradient and alpha nodes" loading="lazy"></div><figcaption><h3>Rainbow trail shader</h3><p class="meta">Kungfu Penguin · Shader Graph</p><p>Noise, a rainbow gradient and an alpha fade, all built with nodes.</p></figcaption></figure>
+      <figure class="fx "><div class="media" style="aspect-ratio:1280/720"><video data-src="vid/ce_hologram.mp4" poster="vid/ce_hologram.jpg" autoplay muted loop playsinline preload="metadata" aria-label="The hologram planet spinning above the projector"></video></div><figcaption><h3>Hologram planet</h3><p class="meta">Cosmos Echo · Unity, Shader Graph</p><p>A spinning hologram planet floating above a projector in a VR scene. <a class="fx-link" href="cosmo-echo.html">See project →</a></p></figcaption></figure>
+      <figure class="fx "><div class="media" style="aspect-ratio:1280/720"><video data-src="vid/ce_shader.mp4" poster="vid/ce_shader.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Preview of the spinning hologram planet shader"></video></div><figcaption><h3>Hologram shader preview</h3><p class="meta">Cosmos Echo · Shader Graph</p><p>Triplanar texture, scrolling stripes and a fresnel glow on the rim.</p></figcaption></figure>
+      <figure class="fx "><div class="media" style="aspect-ratio:1400/818"><img src="img/kp_shader_ocean.jpg" width="1400" height="818" alt="Unity Shader Graph for the ocean with Voronoi ripples and moving waves" loading="lazy"></div><figcaption><h3>Ocean shader</h3><p class="meta">Kungfu Penguin · Shader Graph</p><p>Voronoi ripples for the water, and noise that moves the waves up and down.</p></figcaption></figure>
+      <figure class="fx "><div class="media" style="aspect-ratio:1400/1050"><img src="img/ce_shadergraph.jpg" width="1400" height="1050" alt="Unity Shader Graph for the hologram planet" loading="lazy"></div><figcaption><h3>Hologram Shader Graph</h3><p class="meta">Cosmos Echo · Shader Graph</p><p>The full node setup behind the hologram planet.</p></figcaption></figure>
+      <figure class="fx wide"><div class="media" style="aspect-ratio:1280/720"><video data-src="vid/tb_handoff.mp4" poster="vid/tb_handoff.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Two players in the CAVERN passing a large rose that blooms"></video></div><figcaption><h3>Blooming rose in the CAVERN</h3><p class="meta">TorchBearer · Unity</p><p>The rose blooms as players pass it in the 270° CAVERN. I also made the Shader Graph shaders and particle effects for the game. <a class="fx-link" href="torchbearer.html">See project →</a></p></figcaption></figure>
+      </div>
+    </div>
+    <div class="fx-sec">
+      <div class="fx-head"><h2>Blender</h2><p class="meta">Stylized effects, modifiers and volumetrics</p></div>
+      <div class="fx-grid">
+      <figure class="fx "><div class="media" style="aspect-ratio:596/520"><video data-src="vid/effect_running_legs.mp4" poster="vid/effect_running_legs.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Gilbert's legs spinning into a wheel as he runs"></video></div><figcaption><h3>Running legs wheel</h3><p class="meta">APPOT · Blender</p><p>A cartoon run where the legs blur into a spinning wheel. <a class="fx-link" href="appot.html">See project →</a></p></figcaption></figure>
+      <figure class="fx "><div class="media" style="aspect-ratio:730/510"><video data-src="vid/effect_plant_growth.mp4" poster="vid/effect_plant_growth.jpg" autoplay muted loop playsinline preload="metadata" aria-label="The Appot plant growing out of the sandbox"></video></div><figcaption><h3>Plant growth</h3><p class="meta">APPOT · Blender, curves and Simple Deform</p><p>The plant grows out of the sandbox, driven by a curve and a Simple Deform modifier. <a class="fx-link" href="appot.html">See project →</a></p></figcaption></figure>
+      <figure class="fx "><div class="media" style="aspect-ratio:446/456"><video data-src="vid/effect_water.mp4" poster="vid/effect_water.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Cartoon water splashing on Gilbert in the kitchen"></video></div><figcaption><h3>Cartoon water splash</h3><p class="meta">APPOT · Blender</p><p>Hand-animated stylized water. A fluid sim flickered in stereo 3D, so I animated it by hand. <a class="fx-link" href="appot.html">See project →</a></p></figcaption></figure>
+      <figure class="fx "><div class="media" style="aspect-ratio:900/664"><video data-src="vid/tcg_saturn.mp4" poster="vid/tcg_saturn.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Saturn Alien with gold brush-stroke rings moving around a ringed planet"></video></div><figcaption><h3>Saturn rings</h3><p class="meta">Beyond TCG · Blender</p><p>Animated planet rings and hand-painted gold effects for a card character. <a class="fx-link" href="beyond-tcg.html">See project →</a></p></figcaption></figure>
+      <figure class="fx wide"><div class="media" style="aspect-ratio:1280/438"><video data-src="vid/effect_confetti.mp4" poster="vid/effect_confetti.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Confetti falling over Gilbert and the kids at the playground"></video></div><figcaption><h3>Confetti</h3><p class="meta">APPOT · Blender</p><p>The ending celebration, made for a 270° stereo screen. <a class="fx-link" href="appot.html">See project →</a></p></figcaption></figure>
+      <figure class="fx wide"><div class="media" style="aspect-ratio:1280/720"><video data-src="vid/nebula.mp4" poster="vid/nebula.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Camera drifting through a red and blue volumetric nebula"></video></div><figcaption><h3>Nebula</h3><p class="meta">Blender, volumetrics</p><p>A procedural nebula built with volume shaders and node setups, with a slow camera move through it.</p></figcaption></figure>
+      <figure class="fx tall"><div class="media" style="aspect-ratio:540/952"><video data-src="vid/tcg_step2.mp4" poster="vid/tcg_step2.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Lit render with smoke and a yellow flame on the mech's fist"></video></div><figcaption><h3>Smoke and fire</h3><p class="meta">Beyond TCG · Blender</p><p>Smoke and a flame on the mech's fist, before the toon pass. <a class="fx-link" href="beyond-tcg.html">See project →</a></p></figcaption></figure>
+      <figure class="fx tall"><div class="media" style="aspect-ratio:480/854"><video data-src="vid/alien_vs_mech.mp4" poster="vid/alien_vs_mech.jpg" autoplay muted loop playsinline preload="metadata" aria-label="The mech with a yellow flame aura facing the alien, with manga speed lines"></video></div><figcaption><h3>Flame aura and speed lines</h3><p class="meta">Beyond TCG · Blender</p><p>A toon flame aura and manga speed lines for the final card. <a class="fx-link" href="beyond-tcg.html">See project →</a></p></figcaption></figure>
+      </div>
+    </div>
+
+  </section>
+  <section class="wrap area">
+    <p class="next">More work: <a href="3d.html">3D &amp; Animation</a>, <a href="film.html">Film &amp; Content</a></p>
+  </section>
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div><strong>Frank Lin</strong>3D generalist and content creator<br>Entertainment Technology Center, Carnegie Mellon University</div>
+    <div>chuhsial@andrew.cmu.edu<br><a href="https://www.artstation.com/linfrank3">ArtStation</a> · <a href="https://www.linkedin.com/in/chuhsianglin">LinkedIn</a></div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function start(v) {
+    if (v.dataset.loaded) return; v.dataset.loaded = '1';
+    var url = v.getAttribute('data-src');
+    function direct() { v.src = url; if (!reduce) { var p = v.play(); if (p && p.catch) p.catch(function () { v.controls = true; }); } }
+    if (!window.fetch || location.protocol === 'file:') { direct(); return; }
+    fetch(url).then(function (r) { if (!r.ok) throw 0; return r.blob(); }).then(function (b) {
+      v.src = URL.createObjectURL(b.type ? b : new Blob([b], { type: 'video/mp4' }));
+      if (reduce) { v.controls = true; return; }
+      var p = v.play(); if (p && p.catch) p.catch(function () { v.controls = true; });
+    }).catch(direct);
+  }
+  var vids = document.querySelectorAll('video[data-src]');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { start(e.target); io.unobserve(e.target); } }); }, { rootMargin: '300px' });
+    vids.forEach(function (v) { io.observe(v); });
+  } else { vids.forEach(start); }
+})();
+</script>
+<script id="lb-js">
+(function () {
+  var box = document.createElement('div');
+  box.className = 'lb'; box.hidden = true;
+  box.innerHTML = '<button class="lb-x" type="button" aria-label="Close">×</button><div class="lb-scroll"><img alt=""></div><p class="lb-tip">Swipe to see more · tap outside to close</p>';
+  document.body.appendChild(box);
+  var big = box.querySelector('img'), scroll = box.querySelector('.lb-scroll'), tip = box.querySelector('.lb-tip');
+  function close() { box.hidden = true; document.documentElement.style.overflow = ''; }
+  box.addEventListener('click', function (e) { if (e.target === box || e.target === scroll || e.target.classList.contains('lb-x')) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  document.querySelectorAll('main img').forEach(function (im) {
+    if (im.closest('a') || im.closest('.compare-frame')) return;
+    im.classList.add('zoomable');
+    im.addEventListener('click', function () {
+      big.src = im.currentSrc || im.src; big.alt = im.alt;
+      var wide = im.naturalWidth / Math.max(1, im.naturalHeight) > 1.7 && window.innerWidth < 760;
+      box.classList.toggle('wide', wide); tip.hidden = !wide;
+      box.hidden = false; document.documentElement.style.overflow = 'hidden'; scroll.scrollLeft = 0;
+    });
+  });
+})();
+</script>
+</body>
+</html>
