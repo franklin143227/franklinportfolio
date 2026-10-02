@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cosmos Echo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="site.css">
+<style>:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="index.html">Frank Lin <small>3D generalist and content creator</small></a>
+    <nav aria-label="Main">
+      <a href="3d.html" aria-current="page">3D &amp; Animation</a>
+      <a href="film.html">Film &amp; Content</a>
+      <a href="index.html#about">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="wrap page-head">
+    <span class="label">VR story experience · team project</span>
+    <h1>Cosmos Echo</h1>
+    <p class="lede">A 5-minute VR experience about a dying astronaut who finds echoes of his life in the stars.</p>
+  </section>
+  <section class="wrap area" style="padding-top:44px">
+    <div class="media" style="aspect-ratio:800/472;max-width:980px"><img src="img/ce_title.jpg" width="800" height="472" alt="Cosmos Echo title card: Love will guide me home, with planets, Saturn and asteroids"></div>
+    <p style="margin-top:22px" class="watch"><a href="https://www.youtube.com/watch?v=TuHJmiQjzKA">Watch the video ↗</a></p>
+
+    <div class="proj-cols">
+      <div class="proj-text">
+        <h2>The experience</h2>
+        <p>You are an astronaut drifting alone in space with five minutes of oxygen left. Through a telescope, you find echoes of your life in the stars: Saturn's rings hum the song from your wedding, and a passing comet brings back your daughter's kite. As each breath fades, love becomes your last connection to the world.</p>
+        <h2>My role</h2>
+        <p>I was a 3D artist and technical artist on the team.</p>
+        <ul class="role-list">
+          <li>Built the space environment, including planets and asteroids</li>
+          <li>Made the hologram planet shader in Shader Graph</li>
+          <li>Modeled the hologram projector and other props</li>
+          <li>Drew the pixel art memory scenes</li>
+          <li>Made visual effects for atmosphere, scale and memory</li>
+        </ul>
+      </div>
+      <dl class="spec-list">
+        <dt>Project</dt><dd>ETC Building Virtual Worlds, Fall 2025</dd>
+        <dt>Type</dt><dd>5-minute VR story experience</dd>
+        <dt>Engine</dt><dd>Unity, Shader Graph</dd>
+        <dt>My role</dt><dd>3D artist, technical artist</dd>
+      </dl>
+    </div>
+
+    <h2 style="margin-top:72px;margin-bottom:10px">In the headset</h2>
+    <p class="lede" style="margin-bottom:22px">The player looks through the telescope and a hologram planet lights up with a memory.</p>
+    <div class="media" style="aspect-ratio:1280/590;max-width:980px"><video data-src="vid/ce_gameplay.mp4" poster="vid/ce_gameplay.jpg" autoplay muted loop playsinline preload="metadata" aria-label="In-headset view: drifting in space as a glowing hologram planet appears"></video></div>
+
+    <h2 style="margin-top:72px;margin-bottom:10px">Memory echoes</h2>
+    <p class="lede" style="margin-bottom:22px">Pixel art scenes of the astronaut's life, seen through the telescope.</p>
+    <div class="pix">
+      <figure><img src="img/ce_home.png" width="1000" height="800" alt="Pixel art title reading Home over a glowing planet" loading="lazy"><figcaption class="meta">Home</figcaption></figure>
+      <figure><img src="img/ce_kite.png" width="1600" height="1280" alt="Pixel art of a girl flying a kite" loading="lazy"><figcaption class="meta">His daughter's kite</figcaption></figure>
+      <figure><img src="img/ce_wedding.png" width="1600" height="1280" alt="Pixel art of a gramophone next to a wedding photo" loading="lazy"><figcaption class="meta">The wedding song</figcaption></figure>
+      <figure><img src="img/ce_moon.png" width="1600" height="1280" alt="Pixel art of a girl looking up at a glowing moon" loading="lazy"><figcaption class="meta">Looking up at the moon</figcaption></figure>
+      <figure><img src="img/ce_cake.png" width="1000" height="800" alt="Pixel art of a birthday cake with candles" loading="lazy"><figcaption class="meta">A birthday</figcaption></figure>
+      <figure><img src="img/ce_tear.png" width="1600" height="1280" alt="Pixel art close-up of a woman crying with her eyes closed" loading="lazy"><figcaption class="meta">Loss</figcaption></figure>
+    </div>
+
+    <h2 style="margin-top:72px;margin-bottom:22px">The hologram planet</h2>
+    <div class="two-up three">
+      <figure><div class="media" style="aspect-ratio:16/9"><video data-src="vid/ce_hologram.mp4" poster="vid/ce_hologram.jpg" autoplay muted loop playsinline preload="metadata" aria-label="The hologram planet spinning above the projector"></video></div><figcaption><h3>In the scene</h3><p class="meta">The planet floating above the projector</p></figcaption></figure>
+      <figure><div class="media" style="aspect-ratio:16/9"><video data-src="vid/ce_shader.mp4" poster="vid/ce_shader.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Preview of the spinning hologram planet shader"></video></div><figcaption><h3>Shader preview</h3><p class="meta">Scrolling stripes and a glowing rim</p></figcaption></figure>
+      <figure><div class="media char" style="aspect-ratio:1000/920"><img src="img/ce_projector.jpg" width="1000" height="920" alt="3D model of a round hologram projector with teal rings" loading="lazy"></div><figcaption><h3>Projector model</h3><p class="meta">The base the planet floats above</p></figcaption></figure>
+    </div>
+    <figure style="margin:32px 0 0;display:grid;gap:10px;max-width:760px"><div class="media"><img src="img/ce_shadergraph.jpg" width="1400" height="1050" alt="Unity Shader Graph for the hologram planet with stripes, fresnel and triplanar nodes" loading="lazy"></div><figcaption class="meta">The Shader Graph: triplanar texture, scrolling stripes and a fresnel glow</figcaption></figure>
+  </section>
+  <section class="wrap area">
+    <p class="next">More work: <a href="3d.html">3D &amp; Animation</a>, <a href="film.html">Film &amp; Content</a></p>
+  </section>
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div><strong>Frank Lin</strong>3D generalist and content creator<br>Entertainment Technology Center, Carnegie Mellon University</div>
+    <div>chuhsial@andrew.cmu.edu<br><a href="https://www.artstation.com/linfrank3">ArtStation</a> · <a href="https://www.linkedin.com/in/chuhsianglin">LinkedIn</a></div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function start(v) {
+    if (v.dataset.loaded) return; v.dataset.loaded = '1';
+    var url = v.getAttribute('data-src');
+    function direct() { v.src = url; if (!reduce) { var p = v.play(); if (p && p.catch) p.catch(function () { v.controls = true; }); } }
+    if (!window.fetch || location.protocol === 'file:') { direct(); return; }
+    fetch(url).then(function (r) { if (!r.ok) throw 0; return r.blob(); }).then(function (b) {
+      v.src = URL.createObjectURL(b.type ? b : new Blob([b], { type: 'video/mp4' }));
+      if (reduce) { v.controls = true; return; }
+      var p = v.play(); if (p && p.catch) p.catch(function () { v.controls = true; });
+    }).catch(direct);
+  }
+  var vids = document.querySelectorAll('video[data-src]');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { start(e.target); io.unobserve(e.target); } }); }, { rootMargin: '300px' });
+    vids.forEach(function (v) { io.observe(v); });
+  } else { vids.forEach(start); }
+})();
+</script>
+<script id="lb-js">
+(function () {
+  var box = document.createElement('div');
+  box.className = 'lb'; box.hidden = true;
+  box.innerHTML = '<button class="lb-x" type="button" aria-label="Close">×</button><div class="lb-scroll"><img alt=""></div><p class="lb-tip">Swipe to see more · tap outside to close</p>';
+  document.body.appendChild(box);
+  var big = box.querySelector('img'), scroll = box.querySelector('.lb-scroll'), tip = box.querySelector('.lb-tip');
+  function close() { box.hidden = true; document.documentElement.style.overflow = ''; }
+  box.addEventListener('click', function (e) { if (e.target === box || e.target === scroll || e.target.classList.contains('lb-x')) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  document.querySelectorAll('main img').forEach(function (im) {
+    if (im.closest('a') || im.closest('.compare-frame')) return;
+    im.classList.add('zoomable');
+    im.addEventListener('click', function () {
+      big.src = im.currentSrc || im.src; big.alt = im.alt;
+      var wide = im.naturalWidth / Math.max(1, im.naturalHeight) > 1.7 && window.innerWidth < 760;
+      box.classList.toggle('wide', wide); tip.hidden = !wide;
+      box.hidden = false; document.documentElement.style.overflow = 'hidden'; scroll.scrollLeft = 0;
+    });
+  });
+})();
+</script>
+</body>
+</html>
