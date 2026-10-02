@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fire Magic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="site.css">
+<style>:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="index.html">Frank Lin <small>3D generalist and content creator</small></a>
+    <nav aria-label="Main">
+      <a href="3d.html" aria-current="page">3D &amp; Animation</a>
+      <a href="vfx.html">VFX</a>
+      <a href="film.html">Film &amp; Content</a>
+      <a href="index.html#about">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="wrap page-head">
+    <span class="label">Real-time VFX · solo project</span>
+    <h1>Fire Magic</h1>
+    <p class="lede">A fire spell effect made with Unreal Engine Niagara.</p>
+  </section>
+  <section class="wrap area" style="padding-top:44px">
+    <div class="media" style="aspect-ratio:960/670;max-width:820px"><video data-src="vid/fx_spell.mp4" poster="vid/fx_spell.jpg" autoplay muted loop playsinline preload="metadata" aria-label="A character casts a fire spell: red flames swirl up from a glowing magic circle and burst"></video></div>
+
+    <div class="proj-cols">
+      <div class="proj-text">
+        <h2>The effect</h2>
+        <p>A fire spell cast from a glowing magic circle. Flames and embers swirl up around the character, gather into a ball of fire, then burst and fade.</p>
+        <h2>My role</h2>
+        <p>I made the whole effect on my own in Unreal Engine's Niagara system.</p>
+        <ul class="role-list">
+          <li>Built one Niagara system from several emitters: fire, fountains of embers and sparks</li>
+          <li>Designed the magic circle on the ground</li>
+          <li>Timed each part on the timeline so the spell builds up and then bursts</li>
+        </ul>
+      </div>
+      <dl class="spec-list">
+        <dt>Type</dt><dd>Real-time VFX</dd>
+        <dt>Engine</dt><dd>Unreal Engine, Niagara</dd>
+        <dt>My role</dt><dd>Solo project</dd>
+      </dl>
+    </div>
+
+    <h2 style="margin-top:72px;margin-bottom:22px">Inside Niagara</h2>
+    <div class="two-up">
+      <figure><div class="media" style="aspect-ratio:1400/898"><img src="img/fx_niagara.jpg" width="1400" height="898" alt="Unreal Niagara editor showing the fire effect preview and its emitters on the timeline" loading="lazy"></div><figcaption><h3>The Niagara system</h3><p class="meta">The emitters that make up the spell, and their timing</p></figcaption></figure>
+      <figure><div class="media" style="aspect-ratio:1280/750"><video data-src="vid/fx_editor.mp4" poster="vid/fx_editor.jpg" autoplay muted loop playsinline preload="metadata" aria-label="The fire effect playing inside the Niagara editor"></video></div><figcaption><h3>In the editor</h3><p class="meta">The effect playing in the Niagara preview</p></figcaption></figure>
+    </div>
+  </section>
+  <section class="wrap area">
+    <p class="next">More work: <a href="3d.html">3D &amp; Animation</a>, <a href="vfx.html">VFX</a>, <a href="film.html">Film &amp; Content</a></p>
+  </section>
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div><strong>Frank Lin</strong>3D generalist and content creator<br>Entertainment Technology Center, Carnegie Mellon University</div>
+    <div>chuhsial@andrew.cmu.edu<br><a href="https://www.artstation.com/linfrank3">ArtStation</a> · <a href="https://www.linkedin.com/in/chuhsianglin">LinkedIn</a></div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function start(v) {
+    if (v.dataset.loaded) return; v.dataset.loaded = '1';
+    var url = v.getAttribute('data-src');
+    function direct() { v.src = url; if (!reduce) { var p = v.play(); if (p && p.catch) p.catch(function () { v.controls = true; }); } }
+    if (!window.fetch || location.protocol === 'file:') { direct(); return; }
+    fetch(url).then(function (r) { if (!r.ok) throw 0; return r.blob(); }).then(function (b) {
+      v.src = URL.createObjectURL(b.type ? b : new Blob([b], { type: 'video/mp4' }));
+      if (reduce) { v.controls = true; return; }
+      var p = v.play(); if (p && p.catch) p.catch(function () { v.controls = true; });
+    }).catch(direct);
+  }
+  var vids = document.querySelectorAll('video[data-src]');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { start(e.target); io.unobserve(e.target); } }); }, { rootMargin: '300px' });
+    vids.forEach(function (v) { io.observe(v); });
+  } else { vids.forEach(start); }
+})();
+</script>
+<script id="lb-js">
+(function () {
+  var box = document.createElement('div');
+  box.className = 'lb'; box.hidden = true;
+  box.innerHTML = '<button class="lb-x" type="button" aria-label="Close">×</button><div class="lb-scroll"><img alt=""></div><p class="lb-tip">Swipe to see more · tap outside to close</p>';
+  document.body.appendChild(box);
+  var big = box.querySelector('img'), scroll = box.querySelector('.lb-scroll'), tip = box.querySelector('.lb-tip');
+  function close() { box.hidden = true; document.documentElement.style.overflow = ''; }
+  box.addEventListener('click', function (e) { if (e.target === box || e.target === scroll || e.target.classList.contains('lb-x')) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  document.querySelectorAll('main img').forEach(function (im) {
+    if (im.closest('a') || im.closest('.compare-frame')) return;
+    im.classList.add('zoomable');
+    im.addEventListener('click', function () {
+      big.src = im.currentSrc || im.src; big.alt = im.alt;
+      var wide = im.naturalWidth / Math.max(1, im.naturalHeight) > 1.7 && window.innerWidth < 760;
+      box.classList.toggle('wide', wide); tip.hidden = !wide;
+      box.hidden = false; document.documentElement.style.overflow = 'hidden'; scroll.scrollLeft = 0;
+    });
+  });
+})();
+</script>
+</body>
+</html>

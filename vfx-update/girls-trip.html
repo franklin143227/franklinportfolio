@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Girls Trip</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="site.css">
+<style>:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="index.html">Frank Lin <small>3D generalist and content creator</small></a>
+    <nav aria-label="Main">
+      <a href="3d.html" aria-current="page">3D &amp; Animation</a>
+      <a href="vfx.html">VFX</a>
+      <a href="film.html">Film &amp; Content</a>
+      <a href="index.html#about">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="wrap page-head">
+    <span class="label">3D album cover recreation · solo project</span>
+    <h1>Girls Trip</h1>
+    <p class="lede">Zara Larsson's album cover, rebuilt as a miniature 3D scene in Blender.</p>
+  </section>
+  <section class="wrap area" style="padding-top:44px">
+    <div class="gt-hero">
+      <div class="media r-vert"><video data-src="vid/girls_trip.mp4" poster="vid/girls_trip.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Miniature 3D scene: a stylized girl on a pink convertible under purple clouds"></video></div>
+      <div class="proj-text">
+        <h2>The idea</h2>
+        <p>I turned Zara Larsson's album cover for Midnight Sun: Girls Trip into a tiny 3D world. The goal was to keep the mood of the photo, the pink sky, the sports car and the wind in her hair, but make it cute, round and toy-like, like a collectible figure.</p>
+        <p>It is the first piece in my series of miniature pop star scenes, made as short vertical videos for Instagram and TikTok.</p>
+        <h2>My role</h2>
+        <ul class="role-list">
+          <li>Modeled and sculpted the chibi character, hair, outfit and accessories</li>
+          <li>Modeled the pink convertible with its tail lights and license plate</li>
+          <li>Built the scene, lighting and the pink and purple color palette</li>
+          <li>Animated the camera for a short vertical video</li>
+        </ul>
+        <dl class="spec-list" style="margin-top:8px">
+          <dt>Type</dt><dd>3D album cover recreation, fan art</dd>
+          <dt>Software</dt><dd>Blender</dd>
+          <dt>Format</dt><dd>Vertical video for social media</dd>
+          <dt>My role</dt><dd>Solo project</dd>
+        </dl>
+      </div>
+    </div>
+
+    <h2 style="margin-top:72px;margin-bottom:10px">From cover to 3D</h2>
+    <p class="lede" style="margin-bottom:22px">The original album cover, then my wireframe, clay model and final materials.</p>
+    <div class="gt-steps">
+      <figure><div class="media gt-ref"><img src="img/gt_cover.jpg" width="316" height="316" alt="Original album cover: Zara Larsson lying on a pink sports car under a pink sky" loading="lazy"></div><figcaption class="meta">1. Reference: the original album cover</figcaption></figure>
+      <figure><div class="media gt-tall"><img src="img/gt_wire.jpg" width="568" height="994" alt="Wireframe view of the character, hair and car in Blender showing the topology" loading="lazy"></div><figcaption class="meta">2. Wireframe: clean topology</figcaption></figure>
+      <figure><div class="media gt-tall"><img src="img/gt_clay.jpg" width="680" height="1196" alt="Gray clay render of the chibi character on the car in Blender" loading="lazy"></div><figcaption class="meta">3. Clay model: shapes and pose</figcaption></figure>
+      <figure><div class="media gt-tall"><img src="img/gt_material.jpg" width="680" height="1212" alt="The same scene in Blender with blond hair, skin, jewelry and a pink car" loading="lazy"></div><figcaption class="meta">4. Materials and color</figcaption></figure>
+    </div>
+    <p class="caption" style="margin-top:22px">Fan art. The album and cover belong to Zara Larsson and her label.</p>
+  </section>
+  <section class="wrap area">
+    <p class="next">More work: <a href="3d.html">3D &amp; Animation</a>, <a href="vfx.html">VFX</a>, <a href="film.html">Film &amp; Content</a></p>
+  </section>
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div><strong>Frank Lin</strong>3D generalist and content creator<br>Entertainment Technology Center, Carnegie Mellon University</div>
+    <div>chuhsial@andrew.cmu.edu<br><a href="https://www.artstation.com/linfrank3">ArtStation</a> · <a href="https://www.linkedin.com/in/chuhsianglin">LinkedIn</a></div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function start(v) {
+    if (v.dataset.loaded) return; v.dataset.loaded = '1';
+    var url = v.getAttribute('data-src');
+    function direct() { v.src = url; if (!reduce) { var p = v.play(); if (p && p.catch) p.catch(function () { v.controls = true; }); } }
+    if (!window.fetch || location.protocol === 'file:') { direct(); return; }
+    fetch(url).then(function (r) { if (!r.ok) throw 0; return r.blob(); }).then(function (b) {
+      v.src = URL.createObjectURL(b.type ? b : new Blob([b], { type: 'video/mp4' }));
+      if (reduce) { v.controls = true; return; }
+      var p = v.play(); if (p && p.catch) p.catch(function () { v.controls = true; });
+    }).catch(direct);
+  }
+  var vids = document.querySelectorAll('video[data-src]');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { start(e.target); io.unobserve(e.target); } }); }, { rootMargin: '300px' });
+    vids.forEach(function (v) { io.observe(v); });
+  } else { vids.forEach(start); }
+})();
+</script>
+<script id="lb-js">
+(function () {
+  var box = document.createElement('div');
+  box.className = 'lb'; box.hidden = true;
+  box.innerHTML = '<button class="lb-x" type="button" aria-label="Close">×</button><div class="lb-scroll"><img alt=""></div><p class="lb-tip">Swipe to see more · tap outside to close</p>';
+  document.body.appendChild(box);
+  var big = box.querySelector('img'), scroll = box.querySelector('.lb-scroll'), tip = box.querySelector('.lb-tip');
+  function close() { box.hidden = true; document.documentElement.style.overflow = ''; }
+  box.addEventListener('click', function (e) { if (e.target === box || e.target === scroll || e.target.classList.contains('lb-x')) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  document.querySelectorAll('main img').forEach(function (im) {
+    if (im.closest('a') || im.closest('.compare-frame')) return;
+    im.classList.add('zoomable');
+    im.addEventListener('click', function () {
+      big.src = im.currentSrc || im.src; big.alt = im.alt;
+      var wide = im.naturalWidth / Math.max(1, im.naturalHeight) > 1.7 && window.innerWidth < 760;
+      box.classList.toggle('wide', wide); tip.hidden = !wide;
+      box.hidden = false; document.documentElement.style.overflow = 'hidden'; scroll.scrollLeft = 0;
+    });
+  });
+})();
+</script>
+</body>
+</html>

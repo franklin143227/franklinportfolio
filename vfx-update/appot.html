@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>APPOT: A Long Jog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="site.css">
+<style>
+  :root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+
+  /* Panorama band: full width on desktop, sideways scroll on phones */
+  .pano { position: relative; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; }
+  .pano img, .pano video { width: 100%; max-width: none; }
+  .pano-hint { display: none; }
+  @media (max-width: 720px) {
+    .pano img, .pano video { width: auto; height: 220px; }
+    .pano-hint { display: block; margin-top: 8px; }
+  }
+
+  .hero { padding-block: 0 8px; }
+  .hero .pano { border-bottom: 4px solid var(--orange); }
+  .hero-text { display: grid; gap: 14px; padding-block: 36px 8px; }
+  .hero-text h1 span { color: var(--orange); }
+  .facts { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 6px 0 0; list-style: none; }
+  .facts li { background: var(--surface-2); color: var(--fg); font-weight: 700; font-size: 14px; padding: 6px 14px; border-radius: 999px; }
+  .facts li:first-child { background: var(--orange); color: var(--ink); }
+
+  .summary { font-family: var(--f-display); font-weight: 500; font-size: clamp(21px, 2.6vw, 28px); line-height: 1.35; max-width: 36ch; }
+
+  /* Spec sheet */
+  .spec { border: 1px solid var(--line); display: grid; grid-template-columns: max-content 1fr; gap: 10px 28px; margin: 0; padding: 22px 24px; background: var(--paper); border-radius: 16px; font-size: 15px; }
+  .spec dt { font-weight: 700; color: var(--orange-deep); text-transform: uppercase; letter-spacing: 0.08em; font-size: 12.5px; padding-top: 3px; }
+  .spec dd { margin: 0; min-width: 0; font-variant-numeric: tabular-nums; }
+  @media (max-width: 560px) { .spec { grid-template-columns: 1fr; gap: 2px; } .spec dd { margin-bottom: 10px; } }
+
+  .intro { display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: start; padding-block: 40px 8px; }
+  .intro > * { min-width: 0; }
+  @media (max-width: 860px) { .intro { grid-template-columns: 1fr; gap: 28px; } }
+
+  /* Sections */
+  section.block { padding-block: 64px 0; }
+  .head { display: grid; gap: 10px; margin-bottom: 24px; }
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: center; }
+  .split > * { min-width: 0; }
+  .split.text-first > :first-child { order: 0; }
+  @media (max-width: 860px) { .split { grid-template-columns: 1fr; gap: 22px; } }
+  .stack { display: grid; gap: 16px; }
+  .rounded { border-radius: 14px; overflow: hidden; }
+  figure { margin: 0; display: grid; gap: 8px; min-width: 0; }
+
+  .story-doc { max-height: 440px; overflow-y: auto; border-radius: 14px; background: #262626; }
+  .story-doc img { width: 100%; }
+
+  /* Gilbert row */
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 34px; margin: 0; padding: 0; list-style: none; counter-reset: step; }
+  .steps li { position: relative; display: grid; gap: 8px; min-width: 0; counter-increment: step; }
+  .steps .frame { aspect-ratio: 4 / 5; background: #F3EEE6; border-radius: 14px; display: grid; place-items: center; overflow: hidden; }
+  .steps .frame img { width: 100%; height: 100%; object-fit: contain; }
+  .steps .frame.dark { background: var(--surface-2); }
+  .steps li:not(:last-child)::after {
+    content: "→"; position: absolute; right: -27px; top: calc(50% - 30px);
+    font-family: var(--f-display); font-size: 26px; color: var(--orange); font-weight: 600;
+  }
+  .steps .caption::before { content: counter(step) ". "; color: var(--orange-deep); font-weight: 700; }
+  @media (max-width: 760px) {
+    .steps { grid-template-columns: 1fr 1fr; gap: 16px; }
+    .steps li::after { display: none; }
+  }
+
+  .gilbert-bottom { display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; align-items: center; margin-top: 32px; }
+  .gilbert-bottom > * { min-width: 0; }
+  @media (max-width: 760px) { .gilbert-bottom { grid-template-columns: 1fr; } }
+
+  /* Before / after toggle */
+  .compare { display: grid; gap: 10px; }
+  .compare-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; }
+  .compare-top h3 { font-size: 20px; }
+  .toggle { display: inline-flex; background: var(--paper); border-radius: 999px; padding: 4px; gap: 2px; }
+  .toggle button {
+    appearance: none; border: 0; background: transparent; color: var(--muted); font: 700 14px var(--f-body);
+    padding: 7px 16px; border-radius: 999px; cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--fg); color: var(--ink); }
+  .toggle button:hover:not([aria-pressed="true"]) { color: var(--orange-deep); }
+  .compare-frame { position: relative; background: var(--surface); outline: 1px solid var(--line); outline-offset: -1px; border-radius: 14px; overflow: hidden; aspect-ratio: var(--ar, 2.4); max-width: 100%; }
+  .compare-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+  .compare-frame .tag {
+    position: absolute; left: 12px; top: 12px; background: var(--cream); color: var(--ink);
+    font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 10px; border-radius: 999px;
+  }
+  .compare-frame .tag.after { background: var(--orange); }
+  .pairs { display: grid; gap: 44px; }
+
+  /* Videos */
+  .vid { background: var(--ink); border-radius: 14px; overflow: hidden; }
+  .vid video { width: 100%; height: auto; }
+
+  .fx { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .fx figure .vid { aspect-ratio: 1 / 1; display: grid; place-items: center; }
+  .fx figure .vid video { width: 100%; height: 100%; object-fit: cover; }
+  @media (max-width: 900px) { .fx { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 440px) { .fx { grid-template-columns: 1fr; } }
+
+  .eyeflow { display: grid; gap: 6px; }
+  .eyeflow .arrow { font-family: var(--f-display); color: var(--orange); font-size: 15px; font-weight: 600; padding-left: 4px; }
+
+  /* Ending */
+  .ending { position: relative; margin-top: 80px; background: var(--ink); color: var(--cream); overflow: hidden; }
+  .ending > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.38; }
+  .ending .wrap { position: relative; padding-block: 72px; display: grid; gap: 20px; }
+  .ending h2 { color: var(--cream); }
+  .ending .label { color: #FFB27A; }
+  .ending p { color: var(--cream); font-size: 19px; }
+  .lessons { display: flex; flex-wrap: wrap; gap: 10px; padding: 0; margin: 4px 0 0; list-style: none; }
+  .lessons li { background: rgba(251, 246, 236, 0.94); color: var(--ink); font-weight: 700; padding: 8px 16px; border-radius: 999px; font-size: 15px; }
+  .film-cta { display: inline-flex; align-items: center; gap: 10px; background: var(--orange); color: var(--ink); font-weight: 700; padding: 12px 22px; border-radius: 999px; width: fit-content; }
+  .ending .footer-in { margin: 0; }
+  .ending + .footer { margin-top: 0; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="index.html">Frank Lin <small>3D generalist and content creator</small></a>
+    <nav aria-label="Main">
+      <a href="3d.html" aria-current="page">3D &amp; Animation</a>
+      <a href="vfx.html">VFX</a>
+      <a href="film.html">Film &amp; Content</a>
+      <a href="index.html#about">About</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- 1. Hero -->
+  <section class="hero" aria-labelledby="title">
+    <div class="pano">
+      <video data-src="vid/appot_ending.mp4" poster="vid/appot_ending.jpg" autoplay muted loop playsinline preload="metadata" aria-label="The ending of APPOT: confetti falls across the whole playground as Gilbert celebrates with the kids"></video>
+    </div>
+    <p class="wrap caption pano-hint">Swipe sideways to look around the room →</p>
+    <div class="wrap hero-text">
+      <span class="label">270° stereo animated short · solo project · ETC 3D generalist work</span>
+      <h1 id="title"><span>APPOT</span>: A Long Jog</h1>
+      <p class="lede">A 3-minute animated short for CMU's 270° CAVERN</p>
+      <ul class="facts" aria-label="Quick facts">
+        <li>3D generalist, ETC</li><li>Made on my own</li><li>Blender</li><li>270° stereo 3D</li><li>2026</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="wrap intro">
+    <p class="summary">A young inventor mixes an apple seed and a carrot, grows a strange new fruit called the Appot, eats it, and can't stop running, until he finds out that water is the answer.</p>
+    <dl class="spec">
+      <dt>Job</dt><dd>Part-time 3D Generalist, Entertainment Technology Center, CMU (2026)</dd>
+      <dt>Length</dt><dd>About 3 minutes, 11 scenes, 33 shots</dd>
+      <dt>Platform</dt><dd>CAVERN at CMU ETC: 270° curved wall, 3 projectors, stereo 3D with shutter glasses</dd>
+      <dt>My role</dt><dd>Story adaptation, script, character design, character modeling and rigging, animation, scene layout, lighting, effects, rendering</dd>
+      <dt>Environments</dt><dd>Built from free asset packs to fit the timeline. I laid out, lit and color-tuned each scene for the CAVERN.</dd>
+      <dt>Tools</dt><dd>Blender (Cycles, Rigify)</dd>
+      <dt>Render</dt><dd>One panoramic stereo camera, 270° × 50°, top-bottom stereo, 5760 × 2400</dd>
+      <dt>Render time</dt><dd>About 1 min per frame × 6,000 frames ≈ 100 hours</dd>
+      <dt>Supervisor</dt><dd>John</dd>
+    </dl>
+  </div>
+
+  <!-- 2. CAVERN -->
+  <section class="block wrap" aria-labelledby="cavern">
+    <div class="split">
+      <figure class="rounded">
+        <img src="img/02_cavern_room.jpg" width="2000" height="1125" alt="A person standing in the CAVERN, a dark room where a curved projection wall wraps around them showing a colorful market scene">
+      </figure>
+      <div class="head">
+        <span class="label">The canvas</span>
+        <h2 id="cavern">What is the CAVERN?</h2>
+        <p>The CAVERN is a room at CMU where the screen wraps 270° around you, and everything is in 3D with glasses. So I didn't make a film for a rectangle, I made one for a whole room.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Story -->
+  <section class="block wrap" aria-labelledby="story">
+    <div class="split">
+      <div class="head">
+        <span class="label">Picking the story</span>
+        <h2 id="story">The story</h2>
+        <p>I read 13 short stories and picked Appot. Running is perfect for a 270° room, because the whole world can rush past you. The cause and effect is simple: eat the fruit, can't stop, water fixes it.</p>
+        <p>I turned it into a script and a shot list, and planned every shot for the left, center and right wall. I also added a new opening and ending: Gilbert starts alone at the playground and ends with the same kids around him.</p>
+      </div>
+      <figure>
+        <div class="story-doc" tabindex="0" aria-label="Original story text, scrollable">
+          <img src="img/03_original_story.jpg" width="1144" height="1071" alt="The original short story text of Appot, written in first person by Professor Gilbert, describing how he planted an apple seed in a carrot and could not stop jogging after eating the fruit">
+        </div>
+        <figcaption class="caption">The original story I adapted. Scroll to read.</figcaption>
+      </figure>
+    </div>
+    <div class="stack" style="margin-top:32px">
+      <span class="label">My wide storyboards</span>
+      <figure>
+        <div class="rounded wide-strip"><img src="img/04_storyboard_plant_growth.jpg" width="2000" height="375" alt="Wide hand-drawn storyboard of the plant growing over time: first day, 41 days, 61 days, 21 days and 1 year, ending with an orange fruit"></div><p class="swipe-hint">Swipe to see more · tap to enlarge</p>
+        <figcaption class="caption">Plant growth, planned across the whole wall.</figcaption>
+      </figure>
+      <figure>
+        <div class="rounded wide-strip"><img src="img/05_storyboard_road.jpg" width="2000" height="375" alt="Wide storyboard sketch of a road running to the center, with houses on the left, Gilbert running, and trees on the right"></div><p class="swipe-hint">Swipe to see more · tap to enlarge</p>
+        <figcaption class="caption">The road scene: one vanishing point in the center, the world on both sides.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 4. Gilbert -->
+  <section class="block wrap" aria-labelledby="gilbert">
+    <div class="head">
+      <span class="label">Character</span>
+      <h2 id="gilbert">Meet Gilbert</h2>
+      <p>Gilbert is a curious kid inventor who thinks he is very cool. Round and chubby so he feels friendly, big glasses and a lab coat so he reads as a tiny professor.</p>
+    </div>
+    <ol class="steps">
+      <li><div class="frame"><img src="img/06_gilbert_first_drawing.jpg" width="432" height="650" alt="First 2D drawing of Gilbert in a T-pose: glasses, white lab coat, orange shirt and brown shorts"></div><span class="caption">First drawing</span></li>
+      <li><div class="frame dark"><img src="img/07_gilbert_base_mesh.jpg" width="2000" height="1923" alt="Simple blocky base mesh of a round character body in Blender"></div><span class="caption">Base mesh</span></li>
+      <li><div class="frame dark"><img src="img/08_gilbert_shape_face.jpg" width="516" height="566" alt="Sculpted body shape with a face, bald and untextured"></div><span class="caption">Shape and face</span></li>
+      <li><div class="frame dark"><img src="img/09_gilbert_final.jpg" width="1060" height="1260" alt="Final Gilbert model with hair, round glasses, lab coat, blue shirt and sneakers"></div><span class="caption">Final Gilbert</span></li>
+    </ol>
+    <div class="gilbert-bottom">
+      <p>I modeled and rigged him in Blender, and filmed myself as reference for his moves.</p>
+      <figure>
+        <div class="vid"><video data-src="vid/reference_walk.mp4" poster="vid/reference_walk.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Video of Frank walking at home, used as animation reference"></video></div>
+        <figcaption class="caption">My walking reference.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 5. Rendering -->
+  <section class="block wrap" aria-labelledby="render">
+    <div class="head">
+      <span class="label">The hardest part</span>
+      <h2 id="render">Rendering 270° in 3D</h2>
+    </div>
+    <div class="split">
+      <figure class="rounded">
+        <img src="img/10_six_camera_ring.jpg" width="1536" height="1044" alt="Blender viewport showing six camera frustums arranged in a ring">
+      </figure>
+      <div class="stack">
+        <p>My first try used 6 cameras in a ring, stitched together. Where two cameras met, the ground broke: lines didn't match and the light jumped.</p>
+        <p>The answer was Blender's built-in stereoscopy with one panoramic camera. One camera, one render, no seams. The cost: it only works in Cycles, so rendering took about 100 hours.</p>
+      </div>
+    </div>
+
+    <div class="compare" data-compare style="margin-top:36px">
+      <div class="compare-top">
+        <h3>6 cameras vs. 1 panoramic camera</h3>
+        <div class="toggle" role="group" aria-label="Choose version">
+          <button type="button" data-show="0" aria-pressed="true">6 cameras</button>
+          <button type="button" data-show="1" aria-pressed="false">1 camera</button>
+        </div>
+      </div>
+      <div class="compare-frame" style="--ar: 2.4">
+        <img src="img/11_six_camera_render_seams.jpg" alt="Stitched six-camera render of the playground: the ground breaks where camera views meet">
+        <img src="img/18_playground_after.jpg" alt="Final single-camera panoramic render of the playground with no seams" hidden>
+        <span class="tag">Before</span>
+      </div>
+    </div>
+
+    <div class="split" style="margin-top:36px">
+      <figure class="rounded">
+        <img src="img/12_stereo_frame_top_bottom.jpg" width="1600" height="1333" alt="One stereo frame of the backyard in top-bottom format: the left-eye image on top, the right-eye image below">
+      </figure>
+      <p class="caption">One final frame in top-bottom stereo: the left eye on top, the right eye below. The CAVERN glasses split them so the room looks 3D.</p>
+    </div>
+  </section>
+
+  <!-- 6. Testing -->
+  <section class="block wrap" aria-labelledby="testing">
+    <div class="split">
+      <div class="head">
+        <span class="label">Lessons from the wall</span>
+        <h2 id="testing">Testing in the real room</h2>
+        <p>My first test on the real wall was too dark and hard to read. I learned to push colors brighter, avoid dark areas, hide seam lines behind trees, and keep action in the middle distance.</p>
+      </div>
+      <figure>
+        <div class="vid"><video data-src="vid/first_cavern_test.mp4" poster="vid/first_cavern_test.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Phone video of the first test on the CAVERN wall: a dark green forest scene that is hard to read"></video></div>
+        <figcaption class="caption">My first CAVERN test.</figcaption>
+      </figure>
+    </div>
+    <div style="margin-top:36px">
+      <div class="compare" data-compare>
+        <div class="compare-top">
+          <h3>The forest, before and after the test</h3>
+          <div class="toggle" role="group" aria-label="Forest version"><button type="button" data-show="0" aria-pressed="false">Before</button><button type="button" data-show="1" aria-pressed="true">After</button></div>
+        </div>
+        <div class="compare-frame" style="--ar: 2.4">
+          <img src="img/15_forest_before.jpg" alt="First forest: very dark, sharing one space with the playground" hidden>
+          <img src="img/16_forest_after.jpg" alt="Final forest: bright low-poly pine trees with Gilbert and a glowing idea bulb">
+          <span class="tag after">After</span>
+        </div>
+        <p class="caption">After the test I made the forest much brighter and gave it its own space, apart from the playground.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 7. Comfort -->
+  <section class="block wrap" aria-labelledby="comfort">
+    <div class="head">
+      <span class="label">Directing the audience</span>
+      <h2 id="comfort">Designing for comfort and attention</h2>
+      <p>A fast first-person run in a 270° room can make people dizzy. The camera only moves forward, never turns or tilts, and the road gives the eye one place to rest. Cartoon speed lines make it feel fast without moving the camera faster.</p>
+    </div>
+    <figure>
+      <div class="vid"><video data-src="vid/city_run_speed_lines.mp4" poster="vid/city_run_speed_lines.jpg" autoplay muted loop playsinline preload="metadata" aria-label="First-person run down a city street with cartoon speed lines, the camera moving straight forward"></video></div>
+      <figcaption class="caption">The city run, with speed lines.</figcaption>
+    </figure>
+
+    <div class="split" style="margin-top:40px">
+      <p>Each new scene starts where the eye already is. The forest scene ends with Gilbert on the left, and the backyard scene starts with him in the same spot. I did this with the picture only.</p>
+      <div class="eyeflow">
+        <figure>
+          <div class="rounded wide-strip"><img src="img/13_eyeflow_forest_end.jpg" width="2000" height="390" alt="Last frame of the forest scene with Gilbert on the left side"></div><p class="swipe-hint">Swipe to see more · tap to enlarge</p>
+          <figcaption class="caption">End of the forest</figcaption>
+        </figure>
+        <span class="arrow" aria-hidden="true">↓ cut</span>
+        <figure>
+          <div class="rounded wide-strip"><img src="img/14_eyeflow_backyard_start.jpg" width="2000" height="404" alt="First frame of the backyard scene with Gilbert in the same left position"></div><p class="swipe-hint">Swipe to see more · tap to enlarge</p>
+          <figcaption class="caption">Start of the backyard</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Effects -->
+  <section class="block wrap" aria-labelledby="fx">
+    <div class="head">
+      <span class="label">Effects</span>
+      <h2 id="fx">Cartoon effects</h2>
+    </div>
+    <div class="fx">
+      <figure>
+        <div class="vid"><video data-src="vid/effect_running_legs.mp4" poster="vid/effect_running_legs.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Gilbert's legs spinning into a wheel as he runs"></video></div>
+        <figcaption class="caption">Gilbert's legs become a spinning wheel, like classic cartoons.</figcaption>
+      </figure>
+      <figure>
+        <div class="vid"><video data-src="vid/effect_plant_growth.mp4" poster="vid/effect_plant_growth.jpg" autoplay muted loop playsinline preload="metadata" aria-label="The Appot plant growing out of the sandbox"></video></div>
+        <figcaption class="caption">The plant grows with a curve and Simple Deform.</figcaption>
+      </figure>
+      <figure>
+        <div class="vid"><video data-src="vid/effect_water.mp4" poster="vid/effect_water.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Cartoon water splashing on Gilbert in the kitchen"></video></div>
+        <figcaption class="caption">Hand-animated cartoon water, because a fluid sim flickers in 3D.</figcaption>
+      </figure>
+      <figure>
+        <div class="vid"><video data-src="vid/effect_confetti.mp4" poster="vid/effect_confetti.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Confetti falling over Gilbert and the kids at the playground"></video></div>
+        <figcaption class="caption">The happy ending, with confetti across the whole room.</figcaption>
+      </figure>
+    </div>
+  </section>
+</main>
+
+<!-- 10. Ending -->
+<section class="ending" aria-labelledby="end">
+  <img src="img/25_ending_confetti.jpg" alt="">
+  <div class="wrap">
+    <span class="label">Looking back</span>
+    <h2 id="end">My first 3-minute film, made by myself</h2>
+    <p>This is the first time I built a 3-minute film by myself. It was challenging, but very worth it.</p>
+    <ul class="lessons" aria-label="Lessons">
+      <li>Design for the room</li>
+      <li>Test early in the real space</li>
+      <li>Plan for rendering time</li>
+      <li>Fix one bug at a time</li>
+    </ul>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div><strong>Frank Lin</strong><br>3D generalist and content creator<br>Entertainment Technology Center, Carnegie Mellon University</div>
+    <div>chuhsial@andrew.cmu.edu<br><a href="https://www.artstation.com/linfrank3">ArtStation</a> · <a href="https://www.linkedin.com/in/chuhsianglin">LinkedIn</a></div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('[data-compare]').forEach(function (box) {
+    var imgs = box.querySelectorAll('.compare-frame img');
+    var btns = box.querySelectorAll('.toggle button');
+    var tag = box.querySelector('.tag');
+    btns.forEach(function (b) {
+      b.addEventListener('click', function () {
+        var i = +b.dataset.show;
+        imgs.forEach(function (im, k) { im.hidden = k !== i; });
+        btns.forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+        tag.textContent = i === 0 ? 'Before' : 'After';
+        tag.classList.toggle('after', i === 1);
+      });
+    });
+  });
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('video').forEach(function (v) { v.removeAttribute('autoplay'); v.pause(); v.controls = true; });
+  }
+</script>
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function start(v) {
+    if (v.dataset.loaded) return; v.dataset.loaded = '1';
+    var url = v.getAttribute('data-src');
+    function direct() { v.src = url; if (!reduce) { var p = v.play(); if (p && p.catch) p.catch(function () { v.controls = true; }); } }
+    if (!window.fetch || location.protocol === 'file:') { direct(); return; }
+    fetch(url).then(function (r) { if (!r.ok) throw 0; return r.blob(); }).then(function (b) {
+      v.src = URL.createObjectURL(b.type ? b : new Blob([b], { type: 'video/mp4' }));
+      if (reduce) { v.controls = true; return; }
+      var p = v.play(); if (p && p.catch) p.catch(function () { v.controls = true; });
+    }).catch(direct);
+  }
+  var vids = document.querySelectorAll('video[data-src]');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { start(e.target); io.unobserve(e.target); } }); }, { rootMargin: '300px' });
+    vids.forEach(function (v) { io.observe(v); });
+  } else { vids.forEach(start); }
+})();
+</script>
+
+
+
+<script id="lb-js">
+(function () {
+  var box = document.createElement('div');
+  box.className = 'lb'; box.hidden = true;
+  box.innerHTML = '<button class="lb-x" type="button" aria-label="Close">×</button><div class="lb-scroll"><img alt=""></div><p class="lb-tip">Swipe to see more · tap outside to close</p>';
+  document.body.appendChild(box);
+  var big = box.querySelector('img'), scroll = box.querySelector('.lb-scroll'), tip = box.querySelector('.lb-tip');
+  function close() { box.hidden = true; document.documentElement.style.overflow = ''; }
+  box.addEventListener('click', function (e) { if (e.target === box || e.target === scroll || e.target.classList.contains('lb-x')) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  document.querySelectorAll('main img').forEach(function (im) {
+    if (im.closest('a') || im.closest('.compare-frame')) return;
+    im.classList.add('zoomable');
+    im.addEventListener('click', function () {
+      big.src = im.currentSrc || im.src; big.alt = im.alt;
+      var wide = im.naturalWidth / Math.max(1, im.naturalHeight) > 1.7 && window.innerWidth < 760;
+      box.classList.toggle('wide', wide); tip.hidden = !wide;
+      box.hidden = false; document.documentElement.style.overflow = 'hidden'; scroll.scrollLeft = 0;
+    });
+  });
+})();
+</script>
+</body>
+</html>

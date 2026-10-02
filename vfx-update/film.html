@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Frank Lin, Film and Content</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="site.css">
+<style>:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="index.html">Frank Lin <small>3D generalist and content creator</small></a>
+    <nav aria-label="Main">
+      <a href="3d.html">3D &amp; Animation</a>
+      <a href="vfx.html">VFX</a>
+      <a href="film.html" aria-current="page">Film &amp; Content</a>
+      <a href="index.html#about">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="wrap page-head">
+    <span class="label">Film and content</span>
+    <h1>Short films and social content</h1>
+    <p class="lede">I produce, shoot, light and edit, from 16mm black and white film and stop-motion to Reels for campus teams.</p>
+  </section>
+  <section class="wrap area" style="padding-top:44px">
+    <div class="films">
+      <a class="card" href="https://youtu.be/wJNYiil1GPg"><div class="media r-film"><img src="img/film_exit.jpg" width="960" height="480" alt="Glitchy title card reading Exit to Infinity" loading="lazy"></div><h3>Exit to Infinity</h3><p class="meta">Short film · 2025</p><p class="pos">Producer, Lighting Designer, Assistant Editor</p><p class="tagline">On his way to work, a man accidentally hits someone, and then finds himself trapped in an endless tunnel.</p><span class="more">Watch on YouTube ↗</span></a>
+      <a class="card" href="https://vimeo.com/780322515"><div class="media r-film"><img src="img/film_delusion.jpg" width="960" height="480" alt="Grainy black and white still of three people asleep side by side on a couch" loading="lazy"></div><h3>Delusion</h3><p class="meta">16mm Bolex, black and white · 2022</p><p class="pos">Writer, Director, Cinematographer, Editor</p><p class="tagline">A man can't let go of his parents. He dresses up as them and pretends they are still home.</p><span class="more">Watch on Vimeo ↗</span></a>
+      <a class="card" href="https://vimeo.com/778009740"><div class="media r-film"><img src="img/film_coffee.jpg" width="960" height="480" alt="Grainy black and white close-up of a hand on a table beside a coffee maker" loading="lazy"></div><h3>Coffee</h3><p class="meta">16mm Bolex, black and white · 2022</p><p class="pos">Director, Cinematographer, Editor, Producer</p><p class="tagline">A sleepy student drinks coffee to stay awake before class, and still falls asleep.</p><span class="more">Watch on Vimeo ↗</span></a>
+      <a class="card" href="https://www.instagram.com/reels/C89yZNAOHMl/"><div class="media r-film"><img src="img/film_caller.jpg" width="840" height="420" alt="A student walking up wide stone steps, with the title A Day as a Caller at the SPEC" loading="lazy"></div><h3>A Day As a Caller</h3><p class="meta">1-minute short · 2024</p><p class="pos">Producer, Editor</p><p class="tagline">A day in the life of a student caller at the Student Philanthropy and Engagement Center.</p><span class="more">Watch on Instagram ↗</span></a>
+      <a class="card" href="https://youtu.be/gptj5ZskmsA"><div class="media r-film"><img src="img/film_spiderman.jpg" width="960" height="480" alt="Two Spider-Man action figures fist-bumping on the edge of a foosball table" loading="lazy"></div><h3>Spider-Man Home Invasion</h3><p class="meta">Stop-motion animation · 2022</p><p class="pos">Director of Photography, Producer, Editor</p><p class="tagline">A 1.5-minute stop-motion made with action figures, in a team of four.</p><span class="more">Watch on YouTube ↗</span></a>
+    </div>
+    <div class="content-block">
+      <h2>Content creation</h2>
+      <p class="lede">As Social Media Manager for the Student Philanthropy and Engagement Center at the University of Utah, I made 4 or more short videos a month for Instagram, averaging over 1,500 views, and ran the content calendar for a 60-person student team. Now I'm the Social Media Assistant at the ETC.</p>
+      <ul class="links">
+        <li><a href="https://www.instagram.com/reels/DBHCVANunbV/">Trending funny Reel</a><span>Instagram Reel, 2024</span></li>
+        <li><a href="https://www.instagram.com/reels/DCAsnUsurDX/">Halloween Party Reel</a><span>Event coverage, 2024</span></li>
+        <li><a href="https://www.instagram.com/reels/DAwDRYiy8ad/">Feed U Pantry Introduction</a><span>Graphic video made in Canva, 2024</span></li>
+      </ul>
+    </div>
+  </section>
+  <section class="wrap area">
+    <p class="next">More work: <a href="3d.html">3D &amp; Animation</a>, <a href="vfx.html">VFX</a></p>
+  </section>
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div><strong>Frank Lin</strong>3D generalist and content creator<br>Entertainment Technology Center, Carnegie Mellon University</div>
+    <div>chuhsial@andrew.cmu.edu<br><a href="https://www.artstation.com/linfrank3">ArtStation</a> · <a href="https://www.linkedin.com/in/chuhsianglin">LinkedIn</a></div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function start(v) {
+    if (v.dataset.loaded) return; v.dataset.loaded = '1';
+    var url = v.getAttribute('data-src');
+    function direct() { v.src = url; if (!reduce) { var p = v.play(); if (p && p.catch) p.catch(function () { v.controls = true; }); } }
+    if (!window.fetch || location.protocol === 'file:') { direct(); return; }
+    fetch(url).then(function (r) { if (!r.ok) throw 0; return r.blob(); }).then(function (b) {
+      v.src = URL.createObjectURL(b.type ? b : new Blob([b], { type: 'video/mp4' }));
+      if (reduce) { v.controls = true; return; }
+      var p = v.play(); if (p && p.catch) p.catch(function () { v.controls = true; });
+    }).catch(direct);
+  }
+  var vids = document.querySelectorAll('video[data-src]');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { start(e.target); io.unobserve(e.target); } }); }, { rootMargin: '300px' });
+    vids.forEach(function (v) { io.observe(v); });
+  } else { vids.forEach(start); }
+})();
+</script>
+<script id="lb-js">
+(function () {
+  var box = document.createElement('div');
+  box.className = 'lb'; box.hidden = true;
+  box.innerHTML = '<button class="lb-x" type="button" aria-label="Close">×</button><div class="lb-scroll"><img alt=""></div><p class="lb-tip">Swipe to see more · tap outside to close</p>';
+  document.body.appendChild(box);
+  var big = box.querySelector('img'), scroll = box.querySelector('.lb-scroll'), tip = box.querySelector('.lb-tip');
+  function close() { box.hidden = true; document.documentElement.style.overflow = ''; }
+  box.addEventListener('click', function (e) { if (e.target === box || e.target === scroll || e.target.classList.contains('lb-x')) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  document.querySelectorAll('main img').forEach(function (im) {
+    if (im.closest('a') || im.closest('.compare-frame')) return;
+    im.classList.add('zoomable');
+    im.addEventListener('click', function () {
+      big.src = im.currentSrc || im.src; big.alt = im.alt;
+      var wide = im.naturalWidth / Math.max(1, im.naturalHeight) > 1.7 && window.innerWidth < 760;
+      box.classList.toggle('wide', wide); tip.hidden = !wide;
+      box.hidden = false; document.documentElement.style.overflow = 'hidden'; scroll.scrollLeft = 0;
+    });
+  });
+})();
+</script>
+</body>
+</html>
