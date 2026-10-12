@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Frank Lin, Lighting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="site.css">
+<style>:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="index.html">Frank Lin <small>3D generalist and content creator</small></a>
+    <nav aria-label="Main">
+      <a href="3d.html">3D &amp; Animation</a>
+      <a href="vfx.html">VFX</a>
+      <a href="lighting.html" aria-current="page">Lighting</a>
+      <a href="film.html">Film &amp; Content</a>
+      <a href="index.html#about">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="wrap page-head">
+    <span class="label">Lighting and rendering</span>
+    <h1>Lighting, rendering and compositing</h1>
+    <p class="lede">I light shots to guide the eye and set the mood, from 270° stereo renders and stylized character scenes to 16mm film sets.</p>
+  </section>
+  <section class="wrap area" style="padding-top:44px">
+    <div class="fx-sec first">
+      <div class="fx-head"><h2>APPOT: A Long Jog</h2><p class="meta">Blender, Cycles · 270° stereoscopic short</p></div>
+      <p class="lt-intro">I lit and rendered a 3-minute stereo short for the CMU ETC CAVERN, about 6,000 frames from one panoramic stereo camera. <a class="fx-link" href="appot.html">See project →</a></p>
+      <div class="fx-grid">
+      <figure class="fx wide"><div class="media" style="aspect-ratio:2880/600"><video data-src="vid/appot_ending.mp4" poster="vid/appot_ending.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Wide 270° panorama of the playground ending with confetti"></video></div><figcaption><h3>Final lit shot</h3><p class="meta">The full 270° view, flattened</p><p>Bright, readable daylight so the audience can follow the action across a wraparound wall.</p></figcaption></figure>
+      <figure class="fx wide"><div class="media" style="aspect-ratio:2000/375"><img src="img/15_forest_before.jpg" width="2000" height="375" alt="First forest render: very dark and hard to read" loading="lazy"></div><figcaption><h3>Before: first wall test</h3><p class="meta">Too dark on the real screen</p><p>On the CAVERN wall the dark greens fell apart and the scene was hard to read.</p></figcaption></figure>
+      <figure class="fx wide"><div class="media" style="aspect-ratio:2000/833"><img src="img/16_forest_after.jpg" width="2000" height="833" alt="Final forest: bright low-poly pine trees with Gilbert" loading="lazy"></div><figcaption><h3>After: relit forest</h3><p class="meta">Brighter, cleaner values</p><p>I pushed the colors brighter, removed the darkest areas and gave the forest its own space.</p></figcaption></figure>
+      <figure class="fx "><div class="media" style="aspect-ratio:1280/720"><video data-src="vid/first_cavern_test.mp4" poster="vid/first_cavern_test.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Phone video of the first test on the CAVERN wall"></video></div><figcaption><h3>Testing in the room</h3><p class="meta">Color, brightness and staging</p><p>I test renders on the real wall and tune them, since the screen reads very differently from a monitor.</p></figcaption></figure>
+      <figure class="fx "><div class="media" style="aspect-ratio:2000/833"><img src="img/13_eyeflow_forest_end.jpg" width="2000" height="833" alt="End of the forest scene with Gilbert on the left" loading="lazy"></div><figcaption><h3>Staging the eye</h3><p class="meta">Where the audience looks</p><p>Each new scene starts where the eye already is, using light, color and placement instead of camera moves.</p></figcaption></figure>
+      </div>
+    </div>
+    <div class="fx-sec">
+      <div class="fx-head"><h2>Beyond TCG: Alien vs Mech</h2><p class="meta">Blender · lighting, rendering and compositing</p></div>
+      <p class="lt-intro">From a gray blockout to the final frame. I light, render and composite the card art and posters for every character. <a class="fx-link" href="beyond-tcg.html">See project →</a></p>
+      <div class="steps4">
+        <figure><div class="media r-vert"><video data-src="vid/tcg_step1.mp4" poster="vid/tcg_step1.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Gray blockout of the mech punching the alien"></video></div><figcaption class="meta">1. Blockout</figcaption></figure>
+        <figure><div class="media r-vert"><video data-src="vid/tcg_step2.mp4" poster="vid/tcg_step2.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Lit render with smoke and a yellow flame"></video></div><figcaption class="meta">2. Materials, smoke and fire</figcaption></figure>
+        <figure><div class="media r-vert"><video data-src="vid/tcg_step3.mp4" poster="vid/tcg_step3.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Moody purple lighting pass of the fight"></video></div><figcaption class="meta">3. Lighting and mood</figcaption></figure>
+        <figure><div class="media r-vert"><video data-src="vid/alien_vs_mech.mp4" poster="vid/alien_vs_mech.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Final manga-style frame with outlines and speed lines"></video></div><figcaption class="meta">4. Final composite</figcaption></figure>
+      </div>
+    </div>
+    <div class="fx-sec">
+      <div class="fx-head"><h2>Girls Trip</h2><p class="meta">Blender · look development and lighting</p></div>
+      <p class="lt-intro">A miniature 3D version of an album cover, lit to match its soft pink and purple mood. <a class="fx-link" href="girls-trip.html">See project →</a></p>
+      <div class="fx-grid">
+      <figure class="fx tall"><div class="media" style="aspect-ratio:540/960"><video data-src="vid/girls_trip.mp4" poster="vid/girls_trip.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Miniature 3D scene with a girl on a pink convertible under purple clouds"></video></div><figcaption><h3>Final lit scene</h3><p class="meta">Look development and lighting</p><p>Lighting and color built to match the mood of the original album cover.</p></figcaption></figure>
+      <figure class="fx tall"><div class="media" style="aspect-ratio:680/1196"><img src="img/gt_clay.jpg" width="680" height="1196" alt="Gray clay render of the girl and the convertible" loading="lazy"></div><figcaption><h3>Clay render</h3><p class="meta">Before materials and lighting</p><p>The same scene in plain clay, to check shapes and shadows first.</p></figcaption></figure>
+      </div>
+    </div>
+    <div class="fx-sec">
+      <div class="fx-head"><h2>Unreal and volumetrics</h2><p class="meta">Unreal Engine, Blender</p></div>
+      <p class="lt-intro">Lighting in a real-time engine, and light inside volumes.</p>
+      <div class="fx-grid">
+      <figure class="fx "><div class="media" style="aspect-ratio:1140/784"><video data-src="vid/omni_face.mp4" poster="vid/omni_face.jpg" autoplay muted loop playsinline preload="metadata" aria-label="A MetaHuman character talking under purple light"></video></div><figcaption><h3>Lit close-up</h3><p class="meta">Unreal Engine, MetaHuman</p><p>Planned where the light comes from in each shot for a 6-minute animated short.</p></figcaption></figure>
+      <figure class="fx "><div class="media" style="aspect-ratio:1280/720"><video data-src="vid/nebula.mp4" poster="vid/nebula.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Camera drifting through a red and blue volumetric nebula"></video></div><figcaption><h3>Nebula</h3><p class="meta">Blender, volumetrics</p><p>A procedural nebula where light scatters through volume shaders.</p></figcaption></figure>
+      </div>
+    </div>
+    <div class="fx-sec">
+      <div class="fx-head"><h2>On-set lighting</h2><p class="meta">Live-action film</p></div>
+      <p class="lt-intro">Before 3D, I learned light on real sets, with real lamps and film stock.</p>
+      <div class="fx-grid three">
+      <a class="fx lt-film" href="https://youtu.be/wJNYiil1GPg"><div class="media" style="aspect-ratio:2/1"><img src="img/film_exit.jpg" width="960" height="480" alt="Glitchy title card reading Exit to Infinity" loading="lazy"></div><h3>Exit to Infinity</h3><p class="meta">Short film · Lighting Designer</p><p>Lighting that makes familiar spaces feel uneasy. <span class="fx-link">YouTube ↗</span></p></a>
+      <a class="fx lt-film" href="https://vimeo.com/780322515"><div class="media" style="aspect-ratio:2/1"><img src="img/film_delusion.jpg" width="960" height="480" alt="Black and white 16mm still of three people asleep on a couch" loading="lazy"></div><h3>Delusion</h3><p class="meta">16mm black and white · Cinematographer</p><p>Mood shaped with practical light and contrast. <span class="fx-link">Vimeo ↗</span></p></a>
+      <a class="fx lt-film" href="https://vimeo.com/778009740"><div class="media" style="aspect-ratio:2/1"><img src="img/film_coffee.jpg" width="960" height="480" alt="Black and white 16mm close-up of a hand beside a coffee maker" loading="lazy"></div><h3>Coffee</h3><p class="meta">16mm black and white · Cinematographer</p><p>Shot and lit on a Bolex camera. <span class="fx-link">Vimeo ↗</span></p></a>
+      </div>
+    </div>
+
+  </section>
+  <section class="wrap area">
+    <p class="next">More work: <a href="3d.html">3D &amp; Animation</a>, <a href="vfx.html">VFX</a>, <a href="film.html">Film &amp; Content</a></p>
+  </section>
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div><strong>Frank Lin</strong>3D generalist and content creator<br>Entertainment Technology Center, Carnegie Mellon University</div>
+    <div>chuhsial@andrew.cmu.edu<br><a href="https://www.artstation.com/linfrank3">ArtStation</a> · <a href="https://www.linkedin.com/in/chuhsianglin">LinkedIn</a></div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function start(v) {
+    if (v.dataset.loaded) return; v.dataset.loaded = '1';
+    var url = v.getAttribute('data-src');
+    function direct() { v.src = url; if (!reduce) { var p = v.play(); if (p && p.catch) p.catch(function () { v.controls = true; }); } }
+    if (!window.fetch || location.protocol === 'file:') { direct(); return; }
+    fetch(url).then(function (r) { if (!r.ok) throw 0; return r.blob(); }).then(function (b) {
+      v.src = URL.createObjectURL(b.type ? b : new Blob([b], { type: 'video/mp4' }));
+      if (reduce) { v.controls = true; return; }
+      var p = v.play(); if (p && p.catch) p.catch(function () { v.controls = true; });
+    }).catch(direct);
+  }
+  var vids = document.querySelectorAll('video[data-src]');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { start(e.target); io.unobserve(e.target); } }); }, { rootMargin: '300px' });
+    vids.forEach(function (v) { io.observe(v); });
+  } else { vids.forEach(start); }
+})();
+</script>
+<script id="lb-js">
+(function () {
+  var box = document.createElement('div');
+  box.className = 'lb'; box.hidden = true;
+  box.innerHTML = '<button class="lb-x" type="button" aria-label="Close">×</button><div class="lb-scroll"><img alt=""></div><p class="lb-tip">Swipe to see more · tap outside to close</p>';
+  document.body.appendChild(box);
+  var big = box.querySelector('img'), scroll = box.querySelector('.lb-scroll'), tip = box.querySelector('.lb-tip');
+  function close() { box.hidden = true; document.documentElement.style.overflow = ''; }
+  box.addEventListener('click', function (e) { if (e.target === box || e.target === scroll || e.target.classList.contains('lb-x')) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  document.querySelectorAll('main img').forEach(function (im) {
+    if (im.closest('a') || im.closest('.compare-frame')) return;
+    im.classList.add('zoomable');
+    im.addEventListener('click', function () {
+      big.src = im.currentSrc || im.src; big.alt = im.alt;
+      var wide = im.naturalWidth / Math.max(1, im.naturalHeight) > 1.7 && window.innerWidth < 760;
+      box.classList.toggle('wide', wide); tip.hidden = !wide;
+      box.hidden = false; document.documentElement.style.overflow = 'hidden'; scroll.scrollLeft = 0;
+    });
+  });
+})();
+</script>
+</body>
+</html>

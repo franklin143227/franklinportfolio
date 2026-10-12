@@ -356,3 +356,14 @@ img.zoomable { cursor: zoom-in; }
 }
 .fx-grid .fx.tall .media { max-width: 400px; }
 @media (max-width: 720px) { .fx-grid .fx.tall .media { max-width: 320px; } }
+
+/* Lighting page */
+.lt-intro { margin: -8px 0 24px; color: var(--muted); max-width: 70ch; }
+.fx-grid.three { grid-template-columns: repeat(3, minmax(0,1fr)); }
+.lt-film { display: grid; gap: 8px; color: inherit; text-decoration: none; min-width: 0; }
+.lt-film h3 { margin: 4px 0 0; }
+.lt-film p { margin: 0; }
+.lt-film p:last-child { color: var(--muted); }
+.lt-film:hover h3 { color: var(--accent-hi); }
+@media (max-width: 720px) { .fx-grid.three { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .topbar nav { gap: 4px 14px; font-size: 13.5px; } }
