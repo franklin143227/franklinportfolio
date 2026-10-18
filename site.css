@@ -367,3 +367,13 @@ img.zoomable { cursor: zoom-in; }
 .lt-film:hover h3 { color: var(--accent-hi); }
 @media (max-width: 720px) { .fx-grid.three { grid-template-columns: 1fr; } }
 @media (max-width: 480px) { .topbar nav { gap: 4px 14px; font-size: 13.5px; } }
+
+/* Reel */
+.demo-reel { margin-top: 8px; margin-bottom: 24px; display: grid; grid-template-columns: 1fr; gap: 10px; }
+.demo-reel video { width: 100%; height: 100%; object-fit: contain; background: #000; }
+.lt-sub { margin: 28px 0 14px; font-size: 18px; }
+.two-up:has(> figure .media[style*="1/1"]) { grid-template-columns: 1fr 1fr; }
+@media (max-width: 760px) { .two-up:has(> figure .media[style*="1/1"]) { grid-template-columns: 1fr; } }
+.fx-grid:has(> .fx .media[style*="850/1000"]) .fx .media { max-height: 620px; }
+.fx-grid:has(> .fx .media[style*="850/1000"]) { grid-template-columns: repeat(2, minmax(0, 420px)); }
+@media (max-width: 720px) { .fx-grid:has(> .fx .media[style*="850/1000"]) { grid-template-columns: 1fr; } }
