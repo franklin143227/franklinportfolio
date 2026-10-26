@@ -40,7 +40,7 @@
         <h2>My role</h2>
         <ul class="role-list">
           <li>Built the rooms with Geometry Nodes, so I can change the size and layout with a few numbers and a seed</li>
-          <li>Lit the scene with the ceiling panels, with some lights turned off to break up the space</li>
+          <li>Lit the scene with the ceiling panels, and built a shader that controls which panels turn on, when and where</li>
           <li>Composited the look in Blender: color, dithering, vignette, streaks, bloom and film grain</li>
         </ul>
       </div>
@@ -65,6 +65,11 @@
       <figure class="fx "><div class="media" style="aspect-ratio:1480/750"><img src="img/bk_layout.jpg" width="1480" height="750" alt="Wireframe top view of the generated maze of rooms and walls" loading="lazy"></div><figcaption><h3>Generated layout</h3><p class="meta">Geometry Nodes output</p><p>The whole floor plan comes from the node setup. A new seed gives a new maze of rooms.</p></figcaption></figure>
       <figure class="fx "><div class="media" style="aspect-ratio:1400/1030"><img src="img/bk_room.jpg" width="1400" height="1030" alt="Inside the generated rooms in the Blender viewport: yellow wallpaper, a ceiling light and dark doorways" loading="lazy"></div><figcaption><h3>Inside the rooms</h3><p class="meta">Blender viewport</p><p>Doorways cut into the walls lead into dark rooms, which keeps the space feeling endless.</p></figcaption></figure>
       <figure class="fx wide"><div class="media" style="aspect-ratio:1865/1000"><img src="img/bk_geo_nodes.jpg" width="1865" height="1000" alt="Blender Geometry Nodes graph with groups for the outer shell, the walls, subtracting walls and wall cutouts" loading="lazy"></div><figcaption><h3>Geometry Nodes</h3><p class="meta">Procedural rooms</p><p>One node setup builds the rooms: an outer shell with floor and ceiling materials, walls from a grid, walls removed with noise and wave textures, and cutouts scattered and booleaned in. Width, depth, height and a seed change the layout, and stored attributes control which ceiling lights are on.</p></figcaption></figure>
+      </div>
+
+    <h2 style="margin-top:72px;margin-bottom:22px">Controlling the lights</h2>
+      <div class="fx-grid">
+      <figure class="fx wide"><div class="media" style="aspect-ratio:1990/828"><img src="img/bk_light_shader.jpg" width="1990" height="828" alt="Blender shader nodes for the ceiling tiles: a Brick Texture grid, White Noise from a LightSeed attribute and a Less Than node feed the emission" loading="lazy"></div><figcaption><h3>Ceiling light control</h3><p class="meta">Shader nodes</p><p>The ceiling material splits the tiles into a grid with a Brick Texture. White Noise driven by the LightSeed attribute and a Less Than threshold decide which panels glow, and the LightOn attribute from Geometry Nodes sets how many are on. I can choose when and where the lights turn on.</p></figcaption></figure>
       </div>
 
     <h2 style="margin-top:72px;margin-bottom:22px">Compositing</h2>

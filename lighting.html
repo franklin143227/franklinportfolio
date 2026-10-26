@@ -54,6 +54,10 @@
       <figure class="fx "><div class="media" style="aspect-ratio:597/1087"><img src="img/bk_mat.jpg" width="597" height="1087" alt="Backrooms scene with materials and flat light" loading="lazy"></div><figcaption><h3>2. Materials</h3><p class="meta">Before lighting and compositing</p><p>Yellow wallpaper, carpet and ceiling tiles, lit flat.</p></figcaption></figure>
       <figure class="fx "><div class="media" style="aspect-ratio:900/1650"><img src="img/bk_final.jpg" width="900" height="1650" alt="Backrooms teaser frame with buzzing ceiling lights, deep shadows and a dark figure" loading="lazy"></div><figcaption><h3>3. Final teaser frame</h3><p class="meta">Lit and composited</p><p>Some ceiling lights off, hard shadows and a sick yellow green grade.</p></figcaption></figure>
       </div>
+      <h3 class="lt-sub">Controlling the lights</h3>
+      <div class="fx-grid">
+      <figure class="fx wide"><div class="media" style="aspect-ratio:1990/828"><img src="img/bk_light_shader.jpg" width="1990" height="828" alt="Blender shader nodes for the ceiling tiles: a Brick Texture grid, White Noise from a LightSeed attribute and a Less Than node feed the emission" loading="lazy"></div><figcaption><h3>Ceiling light control</h3><p class="meta">Shader nodes</p><p>The ceiling material splits the tiles into a grid with a Brick Texture. White Noise driven by the LightSeed attribute and a Less Than threshold decide which panels glow, and the LightOn attribute from Geometry Nodes sets how many are on. I can choose when and where the lights turn on.</p></figcaption></figure>
+      </div>
       <h3 class="lt-sub">Compositing</h3>
       <div class="fx-grid">
       <figure class="fx wide"><div class="media" style="aspect-ratio:2530/500"><img src="img/bk_comp_nodes.jpg" width="2530" height="500" alt="Blender compositor nodes: Tune Image, Dithering, Vignette, Streaks, Bloom and Film Grain" loading="lazy"></div><figcaption><h3>Compositing</h3><p class="meta">Blender compositor</p><p>Tune Image boosts the color, then Bayer dithering, a vignette, light streaks, bloom and Super 35mm film grain give the old camera look.</p></figcaption></figure>
