@@ -377,3 +377,6 @@ img.zoomable { cursor: zoom-in; }
 .fx-grid:has(> .fx .media[style*="850/1000"]) .fx .media { max-height: 620px; }
 .fx-grid:has(> .fx .media[style*="850/1000"]) { grid-template-columns: repeat(2, minmax(0, 420px)); }
 @media (max-width: 720px) { .fx-grid:has(> .fx .media[style*="850/1000"]) { grid-template-columns: 1fr; } }
+.bk-hero { max-width: 460px; }
+@media (max-width: 720px) { .bk-hero { max-width: 100%; } }
+.fx-grid.three .fx .media[style*="1094"], .fx-grid.three .fx .media[style*="1087"], .fx-grid.three .fx .media[style*="1650"] { max-height: 560px; }

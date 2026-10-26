@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Backrooms</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="site.css">
+<style>:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="index.html">Frank Lin <small>3D generalist and content creator</small></a>
+    <nav aria-label="Main">
+      <a href="3d.html">3D &amp; Animation</a>
+      <a href="vfx.html">VFX</a>
+      <a href="lighting.html">Lighting</a>
+      <a href="film.html">Film &amp; Content</a>
+      <a href="index.html#about">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="wrap page-head">
+    <span class="label">Animated short · solo project, in progress</span>
+    <h1>Backrooms</h1>
+    <p class="lede">Endless yellow office rooms, built with Geometry Nodes and lit to feel uneasy.</p>
+  </section>
+  <section class="wrap area" style="padding-top:44px">
+    <div class="bk-hero"><div class="media" style="aspect-ratio:900/1650"><img src="img/bk_final.jpg" width="900" height="1650" alt="Backrooms teaser: yellow office rooms with buzzing ceiling lights, fallen chairs, a stop sign and a dark figure"></div></div>
+    <p class="caption" style="margin-top:10px">Teaser frame. Animation in progress.</p>
+
+    <div class="proj-cols">
+      <div class="proj-text">
+        <h2>The project</h2>
+        <p>An animated short set in the Backrooms: endless empty office rooms with yellow wallpaper and buzzing lights. The goal is a quiet, uneasy mood, like old found footage.</p>
+        <h2>My role</h2>
+        <ul class="role-list">
+          <li>Built the rooms with Geometry Nodes, so I can change the size and layout with a few numbers and a seed</li>
+          <li>Lit the scene with the ceiling panels, with some lights turned off to break up the space</li>
+          <li>Composited the look in Blender: color, dithering, vignette, streaks, bloom and film grain</li>
+        </ul>
+      </div>
+      <dl class="spec-list">
+        <dt>Type</dt><dd>Animated short, in progress</dd>
+        <dt>Team</dt><dd>Solo project</dd>
+        <dt>Software</dt><dd>Blender, Geometry Nodes, Compositor</dd>
+        <dt>Focus</dt><dd>Procedural environment, lighting, compositing</dd>
+        <dt>Year</dt><dd>2026</dd>
+      </dl>
+    </div>
+
+    <h2 style="margin-top:72px;margin-bottom:22px">From clay to final</h2>
+      <div class="fx-grid three">
+      <figure class="fx "><div class="media" style="aspect-ratio:597/1094"><img src="img/bk_clay.jpg" width="597" height="1094" alt="Backrooms scene in gray clay: walls, fallen chairs, a stop sign and a figure" loading="lazy"></div><figcaption><h3>1. Clay</h3><p class="meta">Layout and shapes</p><p>The rooms and props in plain clay, before materials and light.</p></figcaption></figure>
+      <figure class="fx "><div class="media" style="aspect-ratio:597/1087"><img src="img/bk_mat.jpg" width="597" height="1087" alt="Backrooms scene with materials and flat light" loading="lazy"></div><figcaption><h3>2. Materials</h3><p class="meta">Before lighting and compositing</p><p>Yellow wallpaper, carpet and ceiling tiles, lit flat.</p></figcaption></figure>
+      <figure class="fx "><div class="media" style="aspect-ratio:900/1650"><img src="img/bk_final.jpg" width="900" height="1650" alt="Backrooms teaser frame with buzzing ceiling lights, deep shadows and a dark figure" loading="lazy"></div><figcaption><h3>3. Final teaser frame</h3><p class="meta">Lit and composited</p><p>Some ceiling lights off, hard shadows and a sick yellow green grade.</p></figcaption></figure>
+      </div>
+
+    <h2 style="margin-top:72px;margin-bottom:22px">Procedural rooms</h2>
+      <div class="fx-grid">
+      <figure class="fx "><div class="media" style="aspect-ratio:1480/750"><img src="img/bk_layout.jpg" width="1480" height="750" alt="Wireframe top view of the generated maze of rooms and walls" loading="lazy"></div><figcaption><h3>Generated layout</h3><p class="meta">Geometry Nodes output</p><p>The whole floor plan comes from the node setup. A new seed gives a new maze of rooms.</p></figcaption></figure>
+      <figure class="fx "><div class="media" style="aspect-ratio:1400/1030"><img src="img/bk_room.jpg" width="1400" height="1030" alt="Inside the generated rooms in the Blender viewport: yellow wallpaper, a ceiling light and dark doorways" loading="lazy"></div><figcaption><h3>Inside the rooms</h3><p class="meta">Blender viewport</p><p>Doorways cut into the walls lead into dark rooms, which keeps the space feeling endless.</p></figcaption></figure>
+      <figure class="fx wide"><div class="media" style="aspect-ratio:1865/1000"><img src="img/bk_geo_nodes.jpg" width="1865" height="1000" alt="Blender Geometry Nodes graph with groups for the outer shell, the walls, subtracting walls and wall cutouts" loading="lazy"></div><figcaption><h3>Geometry Nodes</h3><p class="meta">Procedural rooms</p><p>One node setup builds the rooms: an outer shell with floor and ceiling materials, walls from a grid, walls removed with noise and wave textures, and cutouts scattered and booleaned in. Width, depth, height and a seed change the layout, and stored attributes control which ceiling lights are on.</p></figcaption></figure>
+      </div>
+
+    <h2 style="margin-top:72px;margin-bottom:22px">Compositing</h2>
+      <div class="fx-grid">
+      <figure class="fx wide"><div class="media" style="aspect-ratio:2530/500"><img src="img/bk_comp_nodes.jpg" width="2530" height="500" alt="Blender compositor nodes: Tune Image, Dithering, Vignette, Streaks, Bloom and Film Grain" loading="lazy"></div><figcaption><h3>Compositing</h3><p class="meta">Blender compositor</p><p>Tune Image boosts the color, then Bayer dithering, a vignette, light streaks, bloom and Super 35mm film grain give the old camera look.</p></figcaption></figure>
+      </div>
+
+  </section>
+  <section class="wrap area">
+    <p class="next">More work: <a href="3d.html">3D &amp; Animation</a>, <a href="vfx.html">VFX</a>, <a href="lighting.html">Lighting</a>, <a href="film.html">Film &amp; Content</a></p>
+  </section>
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div><strong>Frank Lin</strong>3D generalist and content creator<br>Entertainment Technology Center, Carnegie Mellon University</div>
+    <div>chuhsial@andrew.cmu.edu<br><a href="https://www.artstation.com/linfrank3">ArtStation</a> · <a href="https://www.linkedin.com/in/chuhsianglin">LinkedIn</a></div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function start(v) {
+    if (v.dataset.loaded) return; v.dataset.loaded = '1';
+    var url = v.getAttribute('data-src');
+    function direct() { v.src = url; if (!reduce) { var p = v.play(); if (p && p.catch) p.catch(function () { v.controls = true; }); } }
+    if (!window.fetch || location.protocol === 'file:') { direct(); return; }
+    fetch(url).then(function (r) { if (!r.ok) throw 0; return r.blob(); }).then(function (b) {
+      v.src = URL.createObjectURL(b.type ? b : new Blob([b], { type: 'video/mp4' }));
+      if (reduce) { v.controls = true; return; }
+      var p = v.play(); if (p && p.catch) p.catch(function () { v.controls = true; });
+    }).catch(direct);
+  }
+  var vids = document.querySelectorAll('video[data-src]');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { start(e.target); io.unobserve(e.target); } }); }, { rootMargin: '300px' });
+    vids.forEach(function (v) { io.observe(v); });
+  } else { vids.forEach(start); }
+})();
+</script>
+<script id="lb-js">
+(function () {
+  var box = document.createElement('div');
+  box.className = 'lb'; box.hidden = true;
+  box.innerHTML = '<button class="lb-x" type="button" aria-label="Close">×</button><div class="lb-scroll"><img alt=""></div><p class="lb-tip">Swipe to see more · tap outside to close</p>';
+  document.body.appendChild(box);
+  var big = box.querySelector('img'), scroll = box.querySelector('.lb-scroll'), tip = box.querySelector('.lb-tip');
+  function close() { box.hidden = true; document.documentElement.style.overflow = ''; }
+  box.addEventListener('click', function (e) { if (e.target === box || e.target === scroll || e.target.classList.contains('lb-x')) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  document.querySelectorAll('main img').forEach(function (im) {
+    if (im.closest('a') || im.closest('.compare-frame')) return;
+    im.classList.add('zoomable');
+    im.addEventListener('click', function () {
+      big.src = im.currentSrc || im.src; big.alt = im.alt;
+      var wide = im.naturalWidth / Math.max(1, im.naturalHeight) > 1.7 && window.innerWidth < 760;
+      box.classList.toggle('wide', wide); tip.hidden = !wide;
+      box.hidden = false; document.documentElement.style.overflow = 'hidden'; scroll.scrollLeft = 0;
+    });
+  });
+})();
+</script>
+</body>
+</html>
