@@ -7,8 +7,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="site.css?v=13">
 <style>:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }</style>
+<style>
+.bk-row { display: flex !important; flex-direction: row !important; gap: 14px; align-items: flex-start; }
+.bk-row figure { margin: 0; min-width: 0; display: grid; gap: 8px; align-content: start; }
+.bk-row figcaption h3 { font-size: 15px; margin: 0 0 2px; }
+.bk-row figcaption p { margin: 0; font-size: 13.5px; color: var(--muted, #9aa0a6); }
+@media (max-width: 760px) { .bk-row { display: grid !important; grid-template-columns: 1fr 1fr; } }
+</style>
 </head>
 <body>
 <header class="topbar">
