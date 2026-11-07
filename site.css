@@ -380,3 +380,13 @@ img.zoomable { cursor: zoom-in; }
 .bk-hero { max-width: 460px; }
 @media (max-width: 720px) { .bk-hero { max-width: 100%; } }
 .fx-grid.three .fx .media[style*="1094"], .fx-grid.three .fx .media[style*="1087"], .fx-grid.three .fx .media[style*="1650"] { max-height: 560px; }
+
+/* three vertical covers in one row */
+.grid-3d > .w3 { grid-column: span 3; }
+@media (max-width: 900px) { .grid-3d > .w3 { grid-column: span 6; } }
+@media (max-width: 600px) { .grid-3d > .w3 { grid-column: 1 / -1; max-width: 420px; } }
+.bk-pair { display: grid; grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr); gap: 22px; align-items: start; }
+.bk-pair figure { margin: 0; display: grid; gap: 10px; min-width: 0; }
+@media (max-width: 720px) { .bk-pair { grid-template-columns: 1fr; } }
+.bk-shot { margin-top: 44px; }
+.bk-shot:first-of-type { margin-top: 0; }
