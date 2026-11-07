@@ -408,3 +408,9 @@ main .media.r-vert, main .fx.tall .media, .bk-hero .media { max-width: min(100%,
 .bk-hero { max-width: none; }
 .fx-grid .fx.tall .media, main .media[style*="9/16"] { max-width: min(100%, calc(74vh * 0.5625)); }
 .pix figure { min-width: 0; }
+/* one line before and after on computers */
+.bk-row { display: flex; gap: 14px; align-items: flex-start; }
+.bk-row figure { margin: 0; min-width: 0; display: grid; gap: 8px; align-content: start; }
+.bk-row figcaption h3 { font-size: 15px; margin: 0 0 2px; }
+.bk-row figcaption p { margin: 0; font-size: 13.5px; color: var(--muted); }
+@media (max-width: 760px) { .bk-row { display: grid; grid-template-columns: 1fr 1fr; } }
