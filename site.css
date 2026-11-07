@@ -390,3 +390,21 @@ img.zoomable { cursor: zoom-in; }
 @media (max-width: 720px) { .bk-pair { grid-template-columns: 1fr; } }
 .bk-shot { margin-top: 44px; }
 .bk-shot:first-of-type { margin-top: 0; }
+
+/* keep tall pictures and videos from taking over the screen */
+.home-row { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 760px) { .home-row { grid-template-columns: 1fr 1fr; } .home-row > :last-child { grid-column: auto; } }
+.bk-hero { max-width: 400px; }
+.bk-pair figure .media { max-height: 620px; }
+.bk-pair figure .media[style*="1192"], .bk-pair figure .media[style*="1247"], .bk-pair figure .media[style*="1206"] { max-width: 360px; }
+@media (max-width: 720px) {
+  .bk-hero { max-width: 300px; }
+  .bk-pair figure .media[style*="1192"], .bk-pair figure .media[style*="1247"], .bk-pair figure .media[style*="1206"] { max-width: 260px; }
+  .fx-grid .fx.tall .media { max-width: 260px; }
+  .fx-grid.three .fx .media[style*="1094"], .fx-grid.three .fx .media[style*="1087"], .fx-grid.three .fx .media[style*="1650"] { max-width: 260px; }
+}
+/* vertical videos never taller than about three quarters of the screen */
+main .media.r-vert, main .fx.tall .media, .bk-hero .media { max-width: min(100%, calc(74vh * 0.5625)); }
+.bk-hero { max-width: none; }
+.fx-grid .fx.tall .media, main .media[style*="9/16"] { max-width: min(100%, calc(74vh * 0.5625)); }
+.pix figure { min-width: 0; }
